@@ -1,0 +1,268 @@
+
+	
+	
+	/*
+	
+	@RequestMapping(value="/chartsToJSP", method=RequestMethod.GET, produces="application/json; chartset=utf-8") 
+	public @ResponseBody String toJSP(@RequestParam MultiValueMap<String,Object> parametersMultiMap , HttpServletResponse response, Model model) throws Exception{
+		
+		System.out.println("Map으로 받은 값 : " + parametersMultiMap );
+		
+		Map<String,Object> map = parametersMultiMap.toSingleValueMap();
+		System.out.println("map : " + map);
+		
+		for (String key : map.keySet()) {
+			System.out.println( "--" +key+ " : " + map.get(key));
+		}
+		
+		List<ChartVO> orderList = chartService.searchChart(map);
+		System.out.println("Dao 넘기고 다시 넘어온 값 : " + orderList);
+		System.out.println("selectOrderAll 성공");
+		
+		model.addAttribute("chartList", orderList);
+		
+		return "result";
+		
+	}
+	
+	
+	@RequestMapping(value="/chartsToJSP", method=RequestMethod.POST) 
+	public  String toJSP(Model model  , HttpServletRequest request, HttpServletResponse response) throws Exception{
+		
+		
+		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		request.getParameterMap();
+		
+		System.out.println(request.getParameterMap());
+		request.getAttribute("areaCd");
+		
+		*/
+		
+		
+		/*
+		System.out.println("map : " + map);
+		
+		for (String key : map.keySet()) {
+			System.out.println( "--" +key+ " : " + map.get(key));
+		}
+		
+		List<ChartVO> orderList = chartService.searchChart(map);
+		System.out.println("Dao 넘기고 다시 넘어온 값 : " + orderList);
+		System.out.println("selectOrderAll 성공");
+		
+		model.addAttribute("chartList", orderList);
+		
+		return "result";
+		
+	}
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*	
+	@RequestMapping(value="/chartsToMVM", method=RequestMethod.GET , produces="application/json; chartset=utf-8")
+	public @ResponseBody ChartVOXML getChartList(@RequestBody String jsonParam) throws Exception{
+		
+		System.out.println("넘어온 값 : " + jsonParam);
+		
+		Gson gson = new Gson();
+		OrderVO  order = gson.fromJson(jsonParam, OrderVO.class);
+		System.out.println(order);
+		
+	
+		List<ChartVO> orderList = chartService.searchChart(param);
+		
+		System.out.println("Dao 넘기고 다시 넘어온 값 : " + orderList);
+		
+		ChartVOXML xml = new ChartVOXML("success",orderList);
+		System.out.println("selectOrderAll 성공");
+		return null;
+		
+	}	
+		*/
+		/*
+		// JSON to VOObject
+		ObjectMapper mapper = new ObjectMapper();
+		OrderVO order = mapper.readValue(jsonParam, new TypeReference<OrderVO>() {});
+		 */
+		/*
+		ObjectMapper mapper = new ObjectMapper();
+		OrderVO order = new OrderVO();
+		order = mapper.readValue(jsonParam, new TypeReference<OrderVO>(){});*/
+		
+		
+		/*
+		
+		for(Map<String, Object> m : list) {
+			
+			OrderVO order = new OrderVO();
+			order.setAreaCd(m.get("areaCd").toString());
+			order.setGr(m.get("gr").toString());
+			order.setTotalData(m.get("totalData").toString());
+			order.setSeoul(m.get("seoul").toString());
+			order.setKyunggi(m.get("kyunggi").toString());
+			order.setIncheon(m.get("incheon").toString());
+			order.setPyungtek(m.get("pyungtek").toString());
+			order.setUlsan(m.get("ulsan").toString());
+			order.setDaejoen(m.get("daejoen").toString());
+			order.setBusan(m.get("busan").toString());
+			order.setGwangju(m.get("gwangju").toString());
+			order.setNumOrderInput(m.get("numOrderInput").toString());
+			
+			orderList.add(order);
+		}
+		
+		System.out.println("orderList : " + orderList);
+		List<ChartVO> searchChartList =  chartService.searchChart(orderList);
+		ChartVOXML xml = new ChartVOXML("done", searchChartList);
+		
+		System.out.println("xml.getStatus() : " +xml.getStatus() );
+		return xml;
+		
+		*/
+	
+	
+/*	
+	ObjectMapper mapper = new ObjectMapper();
+	String jsonInString = "{'name' : 'mkyong'}";
+
+	//JSON from file to Object
+	User user = mapper.readValue(new File("c:\\user.json"), User.class);
+
+	//JSON from String to Object
+	User user = mapper.readValue(jsonInString, User.class);
+	
+*/
+	
+/*	
+	@RequestMapping(value="/chartsToMVM", method=RequestMethod.POST)
+	public @ResponseBody ChartVOXML getChartList(MultiValueMap<String,String[]> parametersMultiMap) throws Exception{
+		
+		System.out.println("Map으로 받은 값 : " + parametersMultiMap );
+		Map<String,String[]> map = parametersMultiMap.toSingleValueMap();
+		System.out.println("map : " + map);
+		List<ChartVO> orderList = chartService.searchChart(map);
+		System.out.println("Dao 넘기고 다시 넘어온 값 : " + orderList);
+		ChartVOXML xml = new ChartVOXML("done", orderList);
+		System.out.println("selectOrderAll 성공");
+		System.out.println("xml.getStatus() : " + xml.getStatus());
+		return xml;
+	}
+*/	
+	
+	
+	
+	
+/*	
+	// 여기서부터 안넘어온다.. mapper.xml 에서 안넘어옴 SQL문에서 자꾸 오류뜨는데 왜때문이지?    Cause: java.sql.SQLSyntaxErrorException: ORA-00936: missing expression
+	@RequestMapping(value="/chartsToMVM", method=RequestMethod.POST)
+	public @ResponseBody ChartVOXML getChartList(@RequestBody String parametersMultiMap) throws Exception{
+		
+		System.out.println("Map으로 받은 값 : " + parametersMultiMap );
+		
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map = mapper.readValue(parametersMultiMap, new TypeReference<Map<String, String>>(){});
+		
+		System.out.println("map : " + map);
+		List<ChartVO> orderList = chartService.orderList(map);
+		
+		System.out.println("Dao 넘기고 다시 넘어온 값 : " + orderList);
+		
+		ChartVOXML xml = new ChartVOXML("success",orderList);
+		System.out.println("selectOrderAll 성공");
+		return xml;
+	}
+	
+*/	
+	
+/*	@RequestMapping(value="/chartsToMVM", method=RequestMethod.GET)
+	public @ResponseBody ChartVOXML getChartList(@RequestParam MultiValueMap<String,Object> parametersMultiMap) throws Exception{
+		
+		System.out.println("Map으로 받은 값 : " + parametersMultiMap );
+		
+		Map<String,Object> map = parametersMultiMap.toSingleValueMap();
+		List<ChartVO> orderList = chartService.orderList(map);
+		
+		System.out.println("Dao 넘기고 다시 넘어온 값 : " + orderList);
+		
+		ChartVOXML xml = new ChartVOXML("success",orderList);
+		System.out.println("selectOrderAll 성공");
+		return xml;
+	}
+*/	
+	
+	
+	
+	
+	
+	
+	
+/*	@RequestMapping(value="/chartsToMVM", method=RequestMethod.GET)
+	public @ResponseBody ChartVOXML getChartList(@RequestBody MultiValueMap<String,Object> parametersMultiMap) throws Exception{
+		
+		Map<String,Object> map = parametersMultiMap.toSingleValueMap();
+		List<ChartVO> orderList = chartService.orderList(map);
+		ChartVOXML xml = new ChartVOXML("success",orderList);
+		System.out.println("selectOrderAll 성공");
+		return xml;
+	}
+	
+	
+*/	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	@RequestMapping(value = "/charts", method = RequestMethod.POST)
+	public @ResponseBody ChartVOXML selectChartList(Map<String,Object> map) {
+		
+		List<ChartVO> orderList = chartService.orderList(map);
+		ChartVOXML xml = new ChartVOXML("success",orderList);
+		return xml;
+	}
+	*/
+	
+	
+	
+	
+	
+/*	
+	
+	public ResponseEntity<HashMap<String, Object>> 메서드명 (HttpServletRequest req, ModelMap model)
+
+	{
+	String bizNo = req.getParameter("bizNo");
+		HashMap<String, Object> resultMap = new HashMap();
+			List<Member> memberList = memberService.getMember(bizNo);
+			resultMap.put("memberList", memberList);
+			ResponseEntity<HashMap<String, Object>> responseEntity = new ResponseEntity<>(resultMap, HttpStatus.OK);
+
+	return responseEntity;
+
+	}
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
