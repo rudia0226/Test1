@@ -20,7 +20,7 @@ text-align: center;}
 	text-align: center;
 }
 thead{
-	background: #aaa;
+	background: #F2EFFB;
 }
 .div{
 	font-weight: bolder;
@@ -28,6 +28,10 @@ thead{
 	margin-right: auto;
 	text-align: center;
 }
+#areaCd:hover {
+	cursor: pointer;
+}
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
