@@ -22,22 +22,16 @@ public class ChartServiceImpl implements ChartService{
 	
 	@Autowired
 	SqlSession session;
-	/*
-	@Override
-	public List<ChartVO> list() {
-		return chartdao.list();  
-	}
-*/
+	// Select Checked All
 	@Override
 	public List<ChartVO>  searchChart(Map<String,Object> map) {
 		System.out.println("Service part");
 		return chartdao.searchChart(map);
 	}
+	//SelectBox For AREA_CD
 	@Override
 	public List<selectBoxVO> getSelectBoxValue() {
 		System.out.println("Service part - selectBox");
 		return chartdao.getSelectBoxValue();
 	}
- 
-
 }

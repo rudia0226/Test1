@@ -50,5 +50,4 @@
 	<aop:aspectj-autoproxy  />
 		<bean class="com.wws.chart.aop.LoggerAspect"  id="loggerAspcet" />	
 		
-		
 </beans>

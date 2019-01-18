@@ -5,6 +5,8 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+
+// 실행안됨..왜지?
 @Component
 @Aspect
 public class LoggerAspect {
