@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.inputLogin {
+	border: none;
+	border-bottom: white solid 1px;
+	color: white;
+	background: transparent;
+	outline: none;
+}
+
+.inputLogin:placeholder {
+	color: white;
+}
+
+.btnLogin {
+	border: none;
+	color: white;
+	background-color: transparent;
+}
+
+.btnLogin:hover{
+	color: red;
+	cursor: pointer;
+}
+
+#labelLogin {
+	color: white;
+	font-family: FrankRuehl;
+	font-size: small;
+}
+
+.jInput {
+	border: none;
+	border-bottom: #34495E solid 1px;
+	width: -webkit-fill-available;
+}
+
+.jInputBirth{
+	border: none;
+	border-bottom: #34495E solid 1px;
+}
+
+.tdInput {
+	width: 220px;
+}
+
+.jlabel {
+	font-family: FrankRuehl;
+	color: #000099;
+	font-size: 10pt;
+	font-weight: bolder;
+}
+.imgBtnJoin{
+	width: 70px;
+}
+

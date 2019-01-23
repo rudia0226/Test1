@@ -1,0 +1,185 @@
+@charset "UTF-8";
+#treeContainer{
+	width: 350px;
+}
+#treeLabel {
+	float:left;
+	font-family: 나눔고딕;
+	font-size: small;
+	font-weight: 900;
+}
+
+#treeInput {
+	border: none;
+	border-bottom: #34495E solid 1px;
+	color: solid;
+	background: transparent;
+	outline: none;
+}
+
+#treeInputPhoto{
+	border: none;
+	color: gray;
+	display: none;
+}
+#treeInputBtn{
+	 background-color: none;
+	 border: none ;
+	 border-radius:6px;
+	 width: 60px;
+	 font-family: FrankRuehl;
+	 font-size: medium;
+	 color: #34495E; 
+	 padding-left: 20px;
+	 padding: 5px  20px;
+} 
+
+#treeInputBtn:hover{
+	background-color: #CCD1D1;
+	color: black;	
+	cursor: pointer;
+}
+#treeInputBtn:active{
+	position: relative;
+	top: 2px;
+	left: 3px;
+}
+ 
+#treeBtn {
+	 background-color: #34495E;
+	 border: none;
+	 border-radius:6px;
+	 width: 100px;
+	 font-family: FrankRuehl; 
+	 font-size: medium;
+	 color: white;
+	 cursor: pointer;
+}
+ 
+#treeBtn:hover {
+	background-color: #CCD1D1;
+	color: black;
+}
+#treeBtn:active {
+	position: relative;
+	top: 3px;
+	left: 2px;
+}
+
+.treesTableTRTitle{
+	font-family: 나눔고딕; 
+	 font-size: large;
+	 font-weight: bolder;
+}
+.treesTableTRContent{
+	font-family: 나눔고딕; 
+	 font-size: small;
+}
+
+.treesImg:hover{
+	cursor:pointer;
+            -webkit-transform:scale(3.0); /*  크롬 */
+            -moz-transform:scale(3.0); /* FireFox */
+            -o-transform:scale(3.0); /* Opera */
+            transform:scale(3.0);
+            transition: transform .35s;
+            -o-transition: transform .35s;
+            -moz-transition: transform .35s;
+            -webkit-transition: transform .35s;
+}
+
+
+.snsTA{
+	resize: none;
+	width: 600px;
+	border: #AEB6BF solid 1px; 
+	border-radius: 4px;
+}
+.snsTA:focus{
+	outline: 0;
+}
+.btnContainer{
+	margin-left: auto;
+	margin-right: auto;
+}
+.snsBtn{ 
+	width: 150px;
+	height: 30px;
+	background-color: #AEB6BF;
+	border: none;
+	border-radius: 5px; 
+	padding: 2px 10px;
+} 
+ .snsBtn:hover{
+	cursor: pointer;
+	background-color: #aaaaaa;
+	color: white;
+} 
+.snsBtn1{
+	float: right;
+	width: 40px;; 
+	height: 25px; 
+	background-color: white;  
+	border: none;
+	border-radius: 5px;
+} 
+ .snsBtn1:hover{
+	cursor: pointer;
+	background-color: white;
+	color: red;
+} 
+.snsBtn2{
+	width: 80px;; 
+	height: 25px; 
+	background-color: white;  
+	border: none;
+	border-radius: 5px;
+} 
+ .snsBtn2:hover{
+	cursor: pointer;
+	background-color: #AEB6BF;
+	color: white;
+} 
+.snsBtn3{
+	width: 40px;; 
+	height: 25px; 
+	color: white;
+	font-size: 10pt;
+	background-color: #cccccc;  
+	border: none; 
+	border-radius: 5px;
+} 
+ .snsBtn3:hover{
+	cursor: pointer;
+	background-color: black;
+	color: white;
+} 
+
+
+.snsTable{
+	width: 500px;
+
+}
+
+.tstTR{
+	border: 2px;
+}
+ 
+.container{
+	width: 600px; 
+	border: #cccccc solid  1px;
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+.divC{
+	border-bottom: #cccccc dotted  1px;
+}
+.snsInput{
+	width: 250px;
+	border: none;
+	border-bottom: #cccccc solid  1px;
+}
+
+.rplDIV{ 
+	 width: 550px;
+}

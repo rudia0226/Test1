@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.rudia.s.sns.SNSMapper">
+		<insert id="writeSNS"  parameterType="com.rudia.s.sns.SNSMsg">
+			insert into garden_sns 
+			values (garden_sns_seq.nextval, 
+			#{cs_owner}, sysdate, #{cs_txt})
+		</insert>
+		
+		<select id="getSNSMsg" resultType="com.rudia.s.sns.SNSMsg" >
+			select * from garden_sns, garden_member
+			where cs_owner = m_id
+		</select>
+		
+		<insert id="writeRepl"  parameterType="com.rudia.s.sns.SNSRepl">
+			insert into garden_sns_repl 
+			values (garden_sns_repl_seq.nextval, #{csr_cs_no},
+			#{csr_owner}, sysdate, #{csr_txt})
+		</insert>
+		
+		<!-- 글조회 -->
+		<select id="getSNSMsgRPL"  parameterType="com.rudia.s.sns.SNSMsg"  resultType="com.rudia.s.sns.SNSRepl">
+			select * 
+			from garden_sns_repl
+			where csr_cs_no = #{cs_no}
+		</select>
+		
+		<!-- 댓글수정 -->
+		<update id="updateRepl"  parameterType="com.rudia.s.sns.SNSRepl">
+			update garden_sns_repl
+			set csr_txt = #{csr_txt}, csr_date=sysdate
+			where csr_no = #{csr_no}
+		</update>
+		
+		<!-- 글 삭제 -->
+		<delete id="delSNSMsg"  parameterType="com.rudia.s.sns.SNSMsg">
+			delete from garden_sns
+			where cs_no=#{cs_no}
+		</delete>
+		
+		<!-- 원본글 삭제시 댓글 삭제 -->
+		<delete id="delSNSRepl"  parameterType="com.rudia.s.sns.SNSMsg">
+			delete from garden_sns_repl
+			where csr_cs_no=#{cs_no}
+		</delete>
+		
+		<!-- 댓글만 삭제 -->
+		<delete id="delSNSRepl2"  parameterType="com.rudia.s.sns.SNSRepl">
+			delete from garden_sns_repl
+			where csr_no =#{csr_no}
+		</delete>
+		
+</mapper>
+
+

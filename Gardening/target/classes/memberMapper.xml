@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.rudia.s.member.MemberMapper">
+
+	<!-- 회원가입 -->
+	<insert id="join"  parameterType="com.rudia.s.member.Member">
+		INSERT INTO garden_member
+		 VALUES( #{m_id},#{m_pw},#{m_name},#{m_birth})
+	</insert>
+	
+	<!-- 로그인 , 기타등등 -->
+	<select id="getMemberById" 
+		parameterType="com.rudia.s.member.Member"
+	  	resultType="com.rudia.s.member.Member">
+	  	SELECT * FROM garden_member 
+	  	WHERE m_id = #{m_id}
+	</select>
+	
+	
+	
+</mapper>
