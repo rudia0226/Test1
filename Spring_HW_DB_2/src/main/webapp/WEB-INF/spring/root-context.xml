@@ -18,13 +18,33 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
+	
+	<!-- Logging MyBatis -->
+	<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		 <constructor-arg ref="dataSourceSpied" />
+         <property name="logFormatter">
+            <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+                <property name="loggingType" value="MULTI_LINE" />
+                <property name="sqlPrefix" value="SQL         :  "/>
+            </bean>
+        </property>
+	</bean>
+	
+	<bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+        <property name="url" value="jdbc:oracle:thin:@192.168.0.199:1521:wisedb"></property>
+        <property name="username" value="wise_user"></property>
+        <property name="password" value="1234"></property>
+    </bean>
+    
+<!-- 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>	
 		<property name="url" value="jdbc:oracle:thin:@192.168.0.199:1521:wisedb"/>
 		<property name="username" value="wise_user"/>
 		<property name="password" value="1234"/>
 	</bean>
-	
+	 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation" value="classpath:sqlmap/config/mybatis-config.xml"/>
