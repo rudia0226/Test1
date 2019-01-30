@@ -130,7 +130,7 @@ function showResult(xhr) {
      $("tbody").empty();
      $.each(xhr.data, function(idx, item) {
     	 /* 
-    	 // Appended HTML codes from Database 
+    	 // Appended HTML codes from Database (SelectList)
         $('<tr>')
         .append($('<td>').html(item.areaCd))             
         .append($('<td>').html(item.nm))           
