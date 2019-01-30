@@ -129,8 +129,29 @@ function showResult(xhr) {
      $('#div').prepend(div).css("width","250").css("height","40").css("font-size","20pt").css("color","red").css("background-color","yellow");
      $("tbody").empty();
      $.each(xhr.data, function(idx, item) {
-        $('<tr>') 
-        .append($('<td>').html(item.areaCd))
+    	 /* 
+    	 // Appended HTML codes from Database 
+        $('<tr>')
+        .append($('<td>').html(item.areaCd))             
+        .append($('<td>').html(item.nm))           
+        .append($('<td>').html(item.regionArea))              
+        .append(item.col0)  
+        .append(item.col1)                     
+        .append(item.col2)                      
+        .append(item.col3)                     
+        .append(item.col4)                     
+        .append(item.col5)                      
+        .append(item.col6)                    
+        .append(item.col7)                     
+        .append(item.col8)                     
+        .append(item.col9)                     
+        .append($('<td>').html(item.tot))       
+        .appendTo('tbody');  
+     	 */
+     	 
+        // Default  
+        $('<tr>')
+        .append($('<td>').html(item.areaCd)) 
         .append($('<td>').html(item.nm))
         .append($('<td>').html(item.regionArea))
         .append($('<td>').html(item.col0)) 
@@ -144,11 +165,12 @@ function showResult(xhr) {
         .append($('<td>').html(item.col8))
         .append($('<td>').html(item.col9))
         .append($('<td>').html(item.tot))
-        .appendTo('tbody');
+        .appendTo('tbody'); 
      	$( 'td:contains("▼")' ).css( 'color', 'blue' );
      	$( 'td:contains("▲")' ).css( 'color', 'red' );
      	$( 'tr:contains("합계")' ).css( 'background', '#D5F5E3' ).css('font-weight', 'bold');
      	$( 'tr:contains("총계")' ).css( 'background', '#D6EAF8' ).css('font-weight', 'bold');
+     
      });//each
 } // showResult fn종료
 </script>
