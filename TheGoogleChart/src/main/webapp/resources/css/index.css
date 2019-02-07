@@ -1,0 +1,106 @@
+#areaNm:hover{
+	cursor: pointer;
+}
+#submitF {
+	border: none;
+	height: 30px;
+	width: 80px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+#submitF:hover {
+	background-color: #9932CC;
+	color: white;
+}
+#submit {
+	border: none;
+	height: 30px;
+	width: 80px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#submit:hover {
+	background-color: #9932CC;
+	color: white;
+}
+#colorBtn {
+	border: none;
+	height: 30px;
+	width: 80px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#colorBtn:hover {
+	background-color: #9932CC;
+	color: white;
+} 
+
+.AreaCheck {
+	width: 400px;
+	border-radius: 5px;
+	border: 1px dotted #808080;
+}
+
+.DataOrder {
+	width: 400px;
+	border-radius: 5px;
+	border: 1px dotted #808080;
+}
+
+.AreaOrder {
+	width: 700px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px dotted #808080;
+}
+
+h1 {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: #9932CC;
+}
+
+.container {
+	font-size: 11pt;
+}
+
+.containerTable {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+thead {
+	background: #e2e2ff;
+	color: #191970;
+}
+
+th {
+	background: #e2e2ff;
+}
+
+.div {
+	font-weight: bolder;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#areaCd:hover {
+	cursor: pointer;
+}
+
+#input001 {
+	width: 40px;
+	border: none;
+	border-bottom: 1px dotted #9932CC;
+}
+
+#input002 {
+	width: 130px;
+	border: none;
+	border-bottom: 1px dotted #9932CC;
+}

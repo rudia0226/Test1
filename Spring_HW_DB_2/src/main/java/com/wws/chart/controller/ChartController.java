@@ -6,15 +6,14 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.wws.chart.aop.LoggerAspect;
 import com.wws.chart.service.ChartService;
 import com.wws.chart.vo.ChartVO;
 import com.wws.chart.vo.selectBoxVO;
@@ -51,4 +50,33 @@ public class ChartController {
 		resultForSelectBox.put("selectBox", getSelectBoxValueList);
 		return resultForSelectBox;
 	}
+	
+	@RequestMapping(value="/colorChange", method = RequestMethod.GET)
+	public String colorChange() {
+		return "color";
+	}
+	
+	@RequestMapping(value="/doColorChange", method = RequestMethod.POST , produces="application/json; chartset=utf-8") 
+	@ResponseBody
+	public String doColorChange(@RequestParam MultiValueMap<String,Object> param) {
+		
+		String status = ""; 
+		param.get("datas");
+		System.out.println("넘어온 데이터 : " + param.get("datas"));
+		Map<String,Object> map = param.toSingleValueMap();
+		System.out.println(map);
+		/*
+		try {
+			chartService.colorChange(map);
+			status = "success";
+		} catch (Exception e) {
+			status = "false";
+		}
+		*/
+		return status;
+	}
+	
+	
+	
+	
 }

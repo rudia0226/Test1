@@ -33,4 +33,24 @@ public class ChartDaoImplMapper implements ChartDao{
 		System.out.println("DAO part - selectBox");
 		return sqlSessionTemplate.selectList("getSelectBoxValue");
 	}
+
+	// changing chart color 
+	@Override
+	public void colorChange(Map<String, String> map) {
+		
+		String cmt = "";
+		String cdId = "";
+		cmt = map.get("cmt");
+		cdId = map.get("cdId");
+		
+		for( Map.Entry<String, String> elem : map.entrySet() ){
+            System.out.println( String.format("키 : %s, 값 : %s", elem.getKey(), elem.getValue()) );
+		}
+        
+            // parameter를 String으로 2개 넣어주기 (cmt, cdId) 
+            // 
+		
+}
+	
+	
 }

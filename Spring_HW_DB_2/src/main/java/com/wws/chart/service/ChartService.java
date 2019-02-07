@@ -9,4 +9,5 @@ import com.wws.chart.vo.selectBoxVO;
 public interface ChartService {
 	public List<ChartVO> searchChart(Map<String,Object> map);
 	public List<selectBoxVO> getSelectBoxValue();
+	public void colorChange(Map<String, String> map);
 }

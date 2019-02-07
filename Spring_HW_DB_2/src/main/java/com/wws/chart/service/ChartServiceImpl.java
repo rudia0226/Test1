@@ -19,9 +19,7 @@ public class ChartServiceImpl implements ChartService{
 
 	@Resource
 	private ChartDao  chartdao;
-	
-	@Autowired
-	SqlSession session;
+
 	// Select Checked All
 	@Override
 	public List<ChartVO>  searchChart(Map<String,Object> map) {
@@ -33,5 +31,11 @@ public class ChartServiceImpl implements ChartService{
 	public List<selectBoxVO> getSelectBoxValue() {
 		System.out.println("Service part - selectBox");
 		return chartdao.getSelectBoxValue();
+	}
+	
+	// change chart color 
+	@Override
+	public void colorChange(Map<String, String> map) {
+		chartdao.colorChange(map);
 	}
 }

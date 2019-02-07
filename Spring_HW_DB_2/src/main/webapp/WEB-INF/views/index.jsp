@@ -97,7 +97,7 @@ $(document).ready(function () {
  		 });  //ajax close
 	});	 // submit click close
 	 
-	$("#areaCd").mouseenter(function(){
+	$("#areaNm").mouseenter(function(){
 		console.log('#areaCd 클릭함');  
 		$.ajax({
 			type: 'post',  
@@ -114,9 +114,9 @@ $(document).ready(function () {
 function showSelected(xhr) {
 	console.log('selectBox 값 가져오기');
 	//console.log(xhr.selectBox);
-	$("#areaCd").find("option").remove().end().append("<option value=''>전체</option>");
+	$("#areaNm").find("option").remove().end().append("<option value=''>전체</option>");
 	$.each(xhr.selectBox, function(idx, item){
-		$("#areaCd").append("<option value='"+item.cds+"'>"+item.nms+"</option>")
+		$("#areaNm").append("<option value='"+item.cds+"'>"+item.nms+"</option>")
 	});// each close 
 }
 
@@ -127,60 +127,47 @@ function showResult(xhr) {
      var div = $('<div></div>').attr('id','div1');
      div.append(' Time\t: '+xhr.time + ' sec');
      $('#div').prepend(div).css("width","250").css("height","40").css("font-size","20pt").css("color","red").css("background-color","yellow");
-     $("tbody").empty();
-     $.each(xhr.data, function(idx, item) {
-    	 /* 
-    	 // Appended HTML codes from Database (SelectList)
-        $('<tr>')
-        .append($('<td>').html(item.areaCd))             
-        .append($('<td>').html(item.nm))           
-        .append($('<td>').html(item.regionArea))              
-        .append(item.col0)  
-        .append(item.col1)                     
-        .append(item.col2)                      
-        .append(item.col3)                     
-        .append(item.col4)                     
-        .append(item.col5)                      
-        .append(item.col6)                    
-        .append(item.col7)                     
-        .append(item.col8)                     
-        .append(item.col9)                     
-        .append($('<td>').html(item.tot))       
-        .appendTo('tbody');  
-     	 */
-     	 
-        // Default  
-        $('<tr>')
-        .append($('<td>').html(item.areaCd)) 
-        .append($('<td>').html(item.nm))
-        .append($('<td>').html(item.regionArea))
-        .append($('<td>').html(item.col0)) 
-        .append($('<td>').html(item.col1))
-        .append($('<td>').html(item.col2))
-        .append($('<td>').html(item.col3))
-        .append($('<td>').html(item.col4))
-        .append($('<td>').html(item.col5))
-        .append($('<td>').html(item.col6))
-        .append($('<td>').html(item.col7))
-        .append($('<td>').html(item.col8))
-        .append($('<td>').html(item.col9))
-        .append($('<td>').html(item.tot))
-        .appendTo('tbody'); 
-     	$( 'td:contains("▼")' ).css( 'color', 'blue' );
-     	$( 'td:contains("▲")' ).css( 'color', 'red' );
-     	$( 'tr:contains("합계")' ).css( 'background', '#D5F5E3' ).css('font-weight', 'bold');
-     	$( 'tr:contains("총계")' ).css( 'background', '#D6EAF8' ).css('font-weight', 'bold');
+     //$("tbody").empty();
+     $("#tbody").empty();
      
-     });//each
+     var htmlStr = "";
+     
+     $.each(xhr.data, function(idx, item) {
+    	htmlStr += item.areaNm
+    	htmlStr += item.nm
+    	htmlStr += item.regionArea
+    	htmlStr += item.col0     
+    	htmlStr += item.col1    
+    	htmlStr += item.col2
+    	htmlStr += item.col3
+    	htmlStr += item.col4
+    	htmlStr += item.col5
+    	htmlStr += item.col6    
+    	htmlStr += item.col7
+    	htmlStr += item.col8
+    	htmlStr += item.col9
+    	htmlStr += item.tot
+     });//each                
+     console.log(htmlStr);
+     
+     $("#tbody").html(htmlStr);
+     
 } // showResult fn종료
+
+
+function doPopupopen() {
+	   window. open("colorChange", "Change Color", "width=400, height=200");
+	}
+
 </script>
 </head>
 <body>  
 <p><h1>GOOGLE CHART</h1>
 <hr color="#9932CC"> <p>
-<form  id="form"  > 
+<form  id="form" > 
 		<input type="hidden"  name="hidden1" value="0">	 <!-- name, value값이 json으로 잘 넘어가기위해 앞뒤로 넣어줌. 의미없음 -->
-		<select name="areaCd"  id="areaCd"></select>
+		<select name="areaNm"  id="areaNm"></select> 
+<!-- 		<select name="areaCd"  id="areaCd"></select> -->
 <p>
 	<div class="AreaCheck">
 		<input type="radio" name="gr" id="gr" value="D"> DATA
@@ -206,17 +193,24 @@ function showResult(xhr) {
 	</div>
 	<p>
 		건수<input type="text"  name="numOrderInput"  id="input002" > 
-		<input type="hidden"  name="hidden2"  value="0"><!-- name, value값이 json으로 잘 넘어가기위해 앞뒤로 넣어줌. 의미없음 -->
+	<p>
+	
+	<input type="hidden"  name="hidden2"  value="0"><!-- name, value값이 json으로 잘 넘어가기위해 앞뒤로 넣어줌. 의미없음 -->
 </form>
 <input type="button"  id="submit"  value="확인버튼"> <p>
 <hr  color="#9932CC">
+
+
+<button  onclick="doPopupopen();">색상설정</button>
+
+
 <div id="div" class="div"  align="center"></div>
 <p> 
 <div class="container" >	
 <table  class="containerTable"  border="1">
 <thead>
 	<tr  id="trTitle">
-		<th>지역번호</th>	 <!-- AREA_CD -->
+	  <th>지역번호</th>		 <!-- AREA_CD -->
 		<th>지역이름</th>	 <!-- NM -->
 		<th>나라</th>	     <!-- REGION_AREA -->
 		<th>청소기</th>	     <!-- COL0 -->
@@ -232,7 +226,7 @@ function showResult(xhr) {
 		<th>총계</th>	 <!-- TOT -->
 </tr>
 </thead>
-<tbody></tbody>
+<tbody  id="tbody"></tbody>
 </table>
 </div>	
 </body>
