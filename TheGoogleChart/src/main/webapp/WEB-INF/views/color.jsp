@@ -10,8 +10,12 @@
 <script type="text/javascript">
 	$(document).ready(function () {
 	
+		$('#resetBtn').hide();
+		$('#colorBtn').hide();
+		
 		$('#selectColorListBtn').click(function () {
-			
+			$('#resetBtn').show();
+			$('#colorBtn').show();
 			$.ajax({
 				type: 'get',
 			    url : 'selectListColorChart', 
@@ -47,7 +51,7 @@
 <form id="form2"  action="doColorChange"  method="get" >
 	<div id="form"  align="center"> 
 	<img alt="스앵님" src="resources/img/skyBtn.jpg"  width="350">
-	<br>불러오기 버튼 클릭시 기존 값 소환! 
+	<br><h4>불러오기 버튼 클릭시 기존 값 소환!</h4> 
 	 </div>
 	<input  type="reset"  id="resetBtn"  value="리셋하기"  name="resetbtn"  >
 	<input  type="submit"  id="colorBtn" value="한번에바꾸기"><br> 
