@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,7 @@ public class ChartController {
 	private ChartService chartService;
 	
 	// Select Checked All
-	@RequestMapping(value="/chartsToMVM", method=RequestMethod.GET, produces="application/json; chartset=utf-8") 
+	@RequestMapping(value="/chartsToMVM", method=RequestMethod.GET,  produces="application/json; chartset=utf-8") 
 	public @ResponseBody Map<String,Object>  getChartList(@RequestParam MultiValueMap<String,Object> parametersMultiMap) throws Exception{
 		long start  = System.currentTimeMillis();
 		Map<String,Object> map = parametersMultiMap.toSingleValueMap();
@@ -53,7 +54,7 @@ public class ChartController {
 		long end = System.currentTimeMillis();
 		Map<String,Object> result = new HashMap<String,Object>();
 		String time = String.format("%.2f", (end - start)/1000.0); 
-		System.out.println("MeasuringTime : " + String.format("%.3f", (end - start)/1000.0));
+		System.out.println("MeasuringTime with Function : " + String.format("%.3f", (end - start)/1000.0));
 		result.put("data", orderList); 
 		result.put("time", time);
 		System.out.println("Success getFunctionChartList");
@@ -61,7 +62,7 @@ public class ChartController {
 	}
 	
 	// SelectBox For AREA_CD
-	@RequestMapping(value="/getSelectBoxValue", method=RequestMethod.POST)
+	@RequestMapping(value="/getSelectBoxValue", method=RequestMethod.GET)
 	public @ResponseBody Map<String, Object> getSelectBoxValue() {
 		List<selectBoxVO> getSelectBoxValueList = chartService.getSelectBoxValue();
 		Map<String, Object> resultForSelectBox = new HashMap<String, Object>();
@@ -71,7 +72,7 @@ public class ChartController {
 	}
 	
 	// Move to PopupWindow
-	@RequestMapping(value="/colorChange", method = RequestMethod.GET)
+	@RequestMapping(value="/colorChange")
 	public String colorChange() {
 		return "color";
 	}
@@ -79,12 +80,11 @@ public class ChartController {
 	// Change DB Function color
 	@RequestMapping(value="/doColorChange" , method=RequestMethod.GET)
 	public String doColorChange(HttpServletRequest request) {
-		System.out.println("hello Color Change" );   
+		//System.out.println("hello Color Change" );   
 		String[] cdIds = request.getParameterValues("cdId");
 		String[] cmts = request.getParameterValues("cmt");
-		
 		for (int i = 0; i < cmts.length; i++) {
-			System.out.println("cmt : " + cmts[i] + ", cdId : " + cdIds[i] );
+			//System.out.println("cmt : " + cmts[i] + ", cdId : " + cdIds[i] );
 			chartService.colorChange(cmts[i], cdIds[i]);
 		}
 		return "color";
@@ -96,8 +96,10 @@ public class ChartController {
 		List<ColorVO> getColorList = chartService.colorList();
 		Map<String, Object> map = new HashMap<String,Object>();
 		map.put("colorChart", getColorList);
-		System.out.println("selectColor : value= "+ getColorList);
+		//System.out.println("selectColor : value= "+ getColorList);
 		return  map;
 	} 
+	
+	
 	
 }

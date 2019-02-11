@@ -1,7 +1,5 @@
 package com.wws.chart.vo;
 
-import java.math.BigDecimal;
-
 public class ChartVO {
 
 //private String  areaCd;

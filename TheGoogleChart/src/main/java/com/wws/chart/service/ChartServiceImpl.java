@@ -24,18 +24,18 @@ public class ChartServiceImpl implements ChartService{
 	// Select Checked All
 	@Override
 	public List<ChartVO>  searchChart(Map<String,Object> map) {
-		System.out.println("Service part");
+	//	System.out.println("Service part");
 		return chartdao.searchChart(map);
 	}
 	@Override
 	public List<ChartVO>  chartWithFunction(Map<String,Object> map) {
-		System.out.println("Service part - chartWithFunction");
+	//	System.out.println("Service part - chartWithFunction");
 		return chartdao.chartWithFunction(map);
 	}
 	//SelectBox For AREA_CD
 	@Override
 	public List<selectBoxVO> getSelectBoxValue() {
-		System.out.println("Service part - selectBox");
+	//	System.out.println("Service part - selectBox");
 		return chartdao.getSelectBoxValue();
 	}
 	

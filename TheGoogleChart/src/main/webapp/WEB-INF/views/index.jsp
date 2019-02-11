@@ -12,11 +12,12 @@
 $(document).ready(function () {
 	$("#submit").click(function(){
 		var data = $('#form').serialize();   // id 가 form 인 form의 input, select 의 name, value를 담아줌
+		console.log(data); 
 		$.ajax({
 			type: 'get',
 		    url : 'chartsToMVM', 
 		  	contentType: 'application/json; chartset=utf-8',
-		    data : JSON.stringify(data),   
+		    data :  JSON.stringify(data), 
 		    dataType : 'json',
 		    //async   : false,   //asyncronous to syncronous
 		    error:function(xhr,status,msg){
@@ -27,7 +28,7 @@ $(document).ready(function () {
 	});	 // submit click close
 	 
 	$("#submitF").click(function(){  // Using Oracle Function
-		var data = $('#form').serialize();   
+		var data = $('#form').serialize();
 		$.ajax({
 			type: 'get',
 		    url : 'chartWithFunction', 
@@ -44,7 +45,7 @@ $(document).ready(function () {
 	$("#areaNm").mouseenter(function(){
 		console.log('#areaCd 클릭함');  
 		$.ajax({
-			type: 'post',  
+			type: 'get',  
 		    url : 'getSelectBoxValue', 
 		  	contentType: 'application/json; chartset=utf-8',
 		    error:function(xhr,status,msg){

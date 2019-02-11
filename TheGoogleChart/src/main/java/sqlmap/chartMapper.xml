@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wws.chart.dao.ChartDao">
+<mapper namespace="com.wws.chart.dao.ChartMapper">
 	
 	<!-- color info를 cd_tbl에서 불러옴 -->
 	<select id="colorSelectList"  resultType="ColorVO">

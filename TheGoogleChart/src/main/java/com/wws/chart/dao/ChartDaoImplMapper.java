@@ -17,30 +17,30 @@ public class ChartDaoImplMapper implements ChartDao{
 
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	@Autowired
+	@Autowired 														
 	public void setSqlMapClient(SqlSessionTemplate sqlSessionTemplate) {
-		this.sqlSessionTemplate = sqlSessionTemplate;  
+		this.sqlSessionTemplate = sqlSessionTemplate;  // ¤¤ sqlSession  injection
 	}
 	
 	// Select Checked All
 	@Override
 	public List<ChartVO> searchChart(Map<String,Object> map)  {
-		System.out.println("DAO part");
-		return sqlSessionTemplate.selectList("searchChart", map);
+//		return sqlSessionTemplate.selectList("searchChart", map);   // Using namespace+id (String) <mapper namespace="com.wws.chart.dao.ChartDao">
+		return sqlSessionTemplate.getMapper(ChartMapper.class).searchChart(map);  // Using Mapper Interface <mapper namespace="com.wws.chart.dao.ChartMapper">
 	}
 	
 	// Select Checked All
 	@Override
 	public List<ChartVO> chartWithFunction(Map<String,Object> map)  {
-		System.out.println("DAO part - chartWithFunction");
-		return sqlSessionTemplate.selectList("chartWithFunction", map);
+//		return sqlSessionTemplate.selectList("chartWithFunction", map);
+		return sqlSessionTemplate.getMapper(ChartMapper.class).chartWithFunction(map);
 	}
 	
 	//SelectBox For AREA_CD
 	@Override
 	public List<selectBoxVO> getSelectBoxValue() {
-		System.out.println("DAO part - selectBox");
-		return sqlSessionTemplate.selectList("getSelectBoxValue");
+//		return sqlSessionTemplate.selectList("getSelectBoxValue");
+		return sqlSessionTemplate.getMapper(ChartMapper.class).getSelectBoxValue();
 	}
 
 	// changing chart color 
@@ -50,13 +50,13 @@ public class ChartDaoImplMapper implements ChartDao{
         Map<String, String> map = new HashMap<>();
         map.put("cmt", cmt);
         map.put("cdId", cdId);
-        sqlSessionTemplate.update("colorUpdate", map);
+//        sqlSessionTemplate.update("colorUpdate", map);
+        sqlSessionTemplate.getMapper(ChartMapper.class).colorUpdate(map);
 	}
 
 	@Override
 	public List<ColorVO> colorList() {
-		System.out.println("SelectList ColorChart----");
-		return sqlSessionTemplate.selectList("colorSelectList");
+//		return sqlSessionTemplate.selectList("colorSelectList");
+		return sqlSessionTemplate.getMapper(ChartMapper.class).colorSelectList();
 	}
-	
 }
