@@ -37,7 +37,7 @@
 		<property name="username" value="scott"></property>
 		<property name="password" value="tiger"></property>
 	</bean>
-<!-- 
+<!--  
 	<bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property> 
 		<property name="url" value="jdbc:oracle:thin:@192.168.0.199:1521:wisedb"></property> 
@@ -57,14 +57,5 @@
 			</list>
 		</property> 
 	</bean>
-	
-   <aop:aspectj-autoproxy />
-   <aop:config proxy-target-class="true" /> <!-- class범위로 target지정 -->
-   <bean id="performancdTraceAdvice" class="com.wws.chart.aop.PerfomTraceAdvice" />
-   <aop:config>
-      <aop:aspect id="traceAspect"   ref="performancdTraceAdvice"> 
-         <aop:around  pointcut="execution(* com.chart.service.*.searchChart(..))" method="trace"/>
-      </aop:aspect>
-   </aop:config>
 	
 </beans>
