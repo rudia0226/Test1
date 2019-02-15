@@ -1,73 +1,36 @@
-
-	console.log($('.ip1').val());
-	
 	$(document).ready(function () {
-		$("#colorBtn").click(function(){
-			console.log($('.ip5').val());
-			
-			var dataArray = new Array();
-			
-			var dataInfo = new Object();
-			dataInfo.cmt = $('.ip1').val();
-			dataInfo.cdId = "TOP_COLOR";
-			dataArray.push(dataInfo);
-			
-			var dataInfo = new Object();
-			dataInfo.cmt = $('.ip2').val();
-			dataInfo.cdId = "LAST_COLOR";
-			dataArray.push(dataInfo);
-			
-			var dataInfo = new Object();
-			dataInfo.cmt = $('.ip3').val();
-			dataInfo.cdId = "D_BK_COLOR";
-			dataArray.push(dataInfo);
-			
-			var dataInfo = new Object();
-			dataInfo.cmt = $('.ip4').val();
-			dataInfo.cdId = "M_BK_COLOR";
-			dataArray.push(dataInfo);
-			
-			var dataInfo = new Object();
-			dataInfo.cmt = $('.ip5').val();
-			dataInfo.cdId = "T_BK_COLOR";
-			dataArray.push(dataInfo);
-			
-			var data = new Object();
-			data.datas = dataArray;
-			
-			console.log('data : ' + data); 
-			console.log('dataArray : ' + dataArray); 
-			console.log('JSON.stringify(data) : ' + JSON.stringify(data));
-			console.log('JSON.stringify(dataArray) : ' + JSON.stringify(dataArray));
-			
+	
+		$('#resetBtn').hide();
+		$('#colorBtn').hide();
+		
+		$('#selectColorListBtn').click(function () {
+			$('#resetBtn').show();
+			$('#colorBtn').show();
 			$.ajax({
-				type: 'post',
-			    url : 'doColorChange', 
+				type: 'get',
+			    url : 'selectListColorChart',  
 			  	contentType: 'application/json; chartset=utf-8',
-			    data : JSON.stringify(data),   
-			   // data : JSON.stringify(dataArray),   
 			    dataType : 'json',
-			    async   : false,   //asyncronous to syncronous
 			    error:function(xhr,status,msg){
-						alert("상태값 :" + status + " Http에러메시지 :"+msg);
-					},
-				success:  function () {
-					alert(xhr);	
-				}  //colorChange  //fn 이용 
-	 		 });  //ajax close
-			
-		}); //colorBtn close  
-		
-		
-		 // 클릭 시 value값 초기화
-		$('#input_click_init').focus(function () {
-			$(this).val('');
-		}).blur(function () {
-			if($(this).val() == '' ) {$(this).val('white');}
-		}); // focus close 
-		
+					alert("상태값 :" + status + " Http에러메시지 :"+msg);
+				},
+			success: selectColorChart
+				
+			}); // ajax close
+		}); // click fn close 
 		
 	});// fn close  
+	
+	function selectColorChart(xhr) {
+		$('#form').empty();   
+		$.each(xhr.colorChart, function (idx, item) {
+			$('<div>') 
+		       .append($('<label>').html(item.cdNm).css('font-weight','bolder') )
+		       .append($('<input>').attr('value',  (item.cmt) ).attr('type','text').attr('name','cmt').attr('id','input'))
+		       .append($('<input>').attr('value',  (item.cdId) ).attr('type','hidden').attr('name','cdId'))
+		       .appendTo('#form');
+		}); // each close
+	} // selectColorChart fn close 
 	
 	function doPopupclose() {
 	   window.close();

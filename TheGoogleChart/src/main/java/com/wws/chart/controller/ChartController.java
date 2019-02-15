@@ -29,7 +29,7 @@ public class ChartController {
 	private ChartService chartService;
 	
 	// Select Checked All
-	@RequestMapping(value="/chartsToMVM", method=RequestMethod.GET,  produces="application/json; chartset=utf-8") 
+	@RequestMapping(value="/chart/chartsToMVM", method=RequestMethod.GET,  produces="application/json; chartset=utf-8") 
 	public @ResponseBody Map<String,Object>  getChartList(@RequestParam MultiValueMap<String,Object> parametersMultiMap) throws Exception{
 		long start  = System.currentTimeMillis();
 		Map<String,Object> map = parametersMultiMap.toSingleValueMap();
@@ -44,6 +44,11 @@ public class ChartController {
 		return result;
 	}
 	
+	@RequestMapping("/nan")
+	public String nam() {
+		
+		return "nan";
+	}
 	
 	// Select Checked All chartWithFunction
 	@RequestMapping(value="/chartWithFunction", method=RequestMethod.GET, produces="application/json; chartset=utf-8") 
