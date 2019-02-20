@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sm.household.ca.CaMapper">
+
+<select id="getListByGroup" resultType="com.sm.household.ca.CaBean">
+	select * from Ca_Info where User_Email = #{User_Email} and Ca_Group = #{Ca_Group}
+</select>
+
+<select id="getAllList" resultType="com.sm.household.ca.CaBean">
+	select * from Ca_Info where User_Email = #{User_Email}
+</select>
+
+<select id="getCaByKey" resultType="com.sm.household.ca.CaBean">
+	select * from Ca_info where Ca_Key =#{Ca_Key}
+</select>
+
+<update id="modifyCaByKey" parameterType="com.sm.household.ca.CaBean">
+	update Ca_Info
+	set Ca_Type = #{ca_Type}, Ca_Value = #{ca_Value}
+	where Ca_Key = #{ca_Key}
+</update>
+
+<insert id="newCaCreate" parameterType="com.sm.household.ca.CaBean">
+	insert into Ca_Info
+	values((select max(Ca_Key) from Ca_info)+1, #{User_Email}, #{Ca_Group}, #{Ca_Type}, #{Ca_Value}, 1)
+</insert>
+
+<delete id="delCate" parameterType="com.sm.household.ca.CaBean">
+	delete from Ca_Info where Ca_Key = #{ca_Key} and User_Email = #{User_Email} 
+</delete>
+
+<update id="updateNull" parameterType="com.sm.household.ca.CaBean">
+	update Book_data set ca_key = NULL where Ca_Key = #{ca_Key}
+</update>
+
+</mapper>

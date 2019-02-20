@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+
+#menu_panel{
+	left: -185px;
+	position: fixed;  
+	top: 60px; 
+	width: 220px;
+	height: 1000px;
+	z-index: 100;
+	text-align: right;
+}
+
+ #menu_panel:hover{
+	left: 0px;
+	-webkit-transition: all .25s ease-in;
+} 
+
+#menu html,#menu body,#menu div,#menu span,#menu applet,#menu object,#menu iframe,
+#menu h1,#menu h2,#menu h3,#menu h4,#menu h5,#menu h6,#menu p,
+#menu blockquote,#menu pre,#menu a,#menu abbr,#menu acronym,#menu address,#menu big,#menu cite,#menu code,
+#menu del,#menu dfn,#menu em,#menu img,#menu ins,#menu kbd,#menu q,#menu s,#menu samp,#menu small,
+#menu strike,#menu strong,#menu sub,#menu sup,#menu tt,#menu var,#menu b,#menu u,#menu i,#menu center,
+#menu dl,#menu dt,#menu dd,#menu ol,#menu ul,#menu li,#menu fieldset,#menu form,#menu label,#menu legend,#menu table,
+#menu caption,#menu tbody,#menu tfoot,#menu thead,#menu tr,#menu th,#menu td,#menu article,
+#menu aside,#menu canvas,#menu details,#menu embed,#menu figure,#menu figcaption,#menu footer,#menu header,
+#menu hgroup,#menu menu,#menu nav,#menu output,#menu ruby,#menu section,#menu summary,#menu time,
+#menu mark,#menu audio,#menu video{
+	margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline
+}
+#menu article,#menu aside,#menu details,#menu figcaption,#menu figure,
+#menu footer,#menu header,#menu hgroup,#menu menu,#menu nav,#menu section{display:block}
+/* body{line-height:1} */
+#menu ol,#menu ul{list-style:none}
+#menu blockquote,#menu q{quotes:none}
+#menu blockquote:before,#menu blockquote:after,#menu q:before,#menu q:after{content:'';content:none}
+/* table{border-collapse:collapse;border-spacing:0} */
+
+#menu a {
+  text-decoration: none;
+}
+
+/**
+ * Hidden fallback
+ */
+[hidden] {
+  display: none;
+  visibility: hidden;
+}
+
+/**
+ * Styling navigation
+ */
+#menu header {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 15rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  margin-top: 80px;
+  
+}
+
+/**
+ * Styling top level items
+ */
+.nav a,
+.nav label {
+  display: block;
+  padding: .85rem;
+  color: #566573;
+  background-color: #E8F8F5;
+  box-shadow: inset 0 -1px #1d1d1d;
+  -webkit-transition: all .25s ease-in;
+          transition: all .25s ease-in;
+
+}
+.nav a:focus, .nav a:hover,
+.nav label:focus,
+.nav label:hover {
+  color: #566573;
+  background: white;
+}
+
+.nav label {
+  cursor: pointer;
+}
+
+/**
+ * Styling first level lists items
+ */
+.group-list a,
+.group-list label {
+  padding-left: 2rem;
+  background: #566573;
+  box-shadow: inset 0 -1px #373737;
+  color: #e8f8f5;
+  
+}
+.group-list a:focus, .group-list a:hover,
+.group-list label:focus,
+.group-list label:hover {
+  background: white;
+  color: #566573;
+}
+
+/**
+ * Hide nested lists
+ */
+.group-list,
+.sub-group-list,
+.sub-sub-group-list {
+  height: 100%;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height .5s ease-in-out;
+          transition: max-height .5s ease-in-out;
+
+}
+
+.nav__list input[type=checkbox]:checked + label + ul {
+  /* reset the height when checkbox is checked */
+  max-height: 1000px;
+}
+
+/**
+ * Rotating chevron icon
+ */
+#menu label > span {
+  float: right;
+  -webkit-transition: -webkit-transform .65s ease;
+          transition: transform .65s ease;
+}
+
+.nav__list input[type=checkbox]:checked + label > span {
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+/**
+ * Styling footer
+ */
+footer {
+  padding-top: 50rem;
+  padding-bottom: 50rem;
+  background-color: #566573;
+}
+
+.soc-media {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.soc-media a {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.65);
+  -webkit-transition: color .25s ease-in;
+          transition: color .25s ease-in;
+}
+
+.soc-media a:focus, .soc-media a:hover {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.nav__list img{
+	width: 20px;
+	padding-right: 10px;
+	padding-left: 15px;
+}
+
+#menu a{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 10px;
+}
+#menu label{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+

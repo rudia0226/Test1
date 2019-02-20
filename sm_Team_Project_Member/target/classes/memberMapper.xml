@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.sm.household.Member.MemberMapper">
+
+	<insert id="join"  parameterType="com.sm.household.Member.Member">
+		INSERT INTO User_info 
+		VALUES (#{User_Email}, #{User_Name}, #{User_Pw}, #{User_Birth}, #{User_Sex}, #{Goal_Amount}, sysdate)
+	</insert>
+	
+	<select id="getMemberById" 
+	 parameterType="com.sm.household.Member.Member"  
+	 resultType="com.sm.household.Member.Member">
+		SELECT * FROM User_info
+		WHERE User_Email = #{User_Email}
+	</select>
+	
+	<select id="getMemberById2" 
+	 resultType="com.sm.household.Member.Member">
+		SELECT * FROM User_info
+	</select>
+	
+	<select id="idcheck"  parameterType="String"  resultType="Integer"  >
+		SELECT COUNT(*) FROM User_info 
+		WHERE User_Email = #{User_Email}
+	</select>
+	
+	<update id="update" 
+		 parameterType="com.sm.household.Member.Member">
+		 UPDATE User_info
+		 SET 
+		  User_Name = #{User_Name},
+		  User_Pw = #{User_Pw},
+		  User_Birth = #{User_Birth},
+		  User_Sex = #{User_Sex},
+		  Goal_Amount = #{Goal_Amount}
+		 WHERE
+		  User_Email=#{User_Email}
+		 </update>
+		 
+	<insert id="InsertDefault"  parameterType="com.sm.household.Member.Member" >
+		insert All 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+1, #{User_Email}, 1, 100, '용돈', 1) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+2, #{User_Email}, 1, 100, '급여', 2) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+3, #{User_Email}, 1, 100, '이자수익', 3) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+4, #{User_Email}, 1, 101, '비정기용돈', 4) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+5, #{User_Email}, 1, 101, '상여금', 5) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+6, #{User_Email}, 1, 102, '보험금', 6) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+7, #{User_Email}, 1, 102, '기타', 7) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+8, #{User_Email}, 2, 200, '통신비', 8) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+9, #{User_Email}, 2, 200, '주거비', 9) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+10, #{User_Email}, 2, 200, '교육비', 10) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+11, #{User_Email}, 2, 201, '식비', 11) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+12, #{User_Email}, 2, 201, '간식비', 12) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+13, #{User_Email}, 2, 201, '모임회비', 13) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+14, #{User_Email}, 2, 202, '경조사비', 14) 
+			into Ca_info  Values ((select max(Ca_Key) from Ca_info)+15, #{User_Email}, 2, 202, '기타', 15) 
+		SELECT * FROM DUAL
+	</insert> 
+	
+	
+	<insert id="DefaultPay"  parameterType="com.sm.household.Member.Member" >
+		insert All 
+			into Pay_info  Values ((select max(Pay_Id) from Pay_info)+1, #{User_Email},'체크카드') 
+			into Pay_info  Values ((select max(Pay_Id) from Pay_info)+2, #{User_Email},'신용카드') 
+			into Pay_info  Values ((select max(Pay_Id) from Pay_info)+3, #{User_Email},'현금') 
+			into Pay_info  Values ((select max(Pay_Id) from Pay_info)+4, #{User_Email},'통장') 
+			into Pay_info  Values ((select max(Pay_Id) from Pay_info)+5, #{User_Email},'기타') 
+		SELECT * FROM DUAL
+	</insert> 	 
+</mapper>

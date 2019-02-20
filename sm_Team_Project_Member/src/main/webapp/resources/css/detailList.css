@@ -1,0 +1,157 @@
+.detailbtn {
+	background-color: #F8F9F9;
+	border: none;
+	border-radius: 2px;
+	width: 60px;
+	height: 25px;
+	font-family: Gothic A1;
+	color: #34495E;
+	font-size: small; 
+	padding-left: 0px;
+	padding: 0px;
+}
+
+.detailbtn:hover {
+	background-color: #E8F8F5;
+	color: #34495E;
+	cursor: pointer;
+}
+
+.inputLogin {
+	border: none;
+	border-bottom: #CCD1D1 solid 1px;
+	color: gray;
+	background: transparent;
+	outline: none;
+	width: 200px;
+}
+
+.detailInput{
+	border: none;
+	border-bottom: #ECF0F1 solid 1px;
+	width: 150px;  
+	color: gray; 
+	background: transparent;  
+	outline: none;
+} 
+.detailInput:focus{
+	background-color: #F8F9F9;
+}
+.detailInput:hover{
+	background-color: #FFEBEE;
+} 
+
+.detailSelect {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	outline: 0;
+	box-shadow: none;
+	border: !important;
+	border-bottom: 1px solid #ECF0F1;
+	width: 50px;
+	height: 20px;
+	border: none;
+	color: gray;
+	font-family: Gothic A1;
+}
+
+.detailSelect::-ms-expand {
+	display: none;
+}
+
+.detailSelect::after {
+	content: '\25BC';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0 1em;
+	pointer-events: none;
+}
+
+.detailSelect:hover {
+	background: #E8F8F5;
+	cursor: pointer;  
+}
+
+.detailSelect:hover::after {
+	color: red;
+}
+
+.spanDetail{
+	font-family: Gothic A1;
+	font-size: 12pt;
+	color: #34495E ;
+	padding-right: 10px;
+	margin-top: -5px;
+}
+
+.spanDetail_col{
+	font-family: Gothic A1;
+	font-size: 11pt; 
+	color: gray ; 
+} 
+.spanDetail_col2{
+	font-family: Gothic A1;
+	font-size: 10pt; 
+	color: #AEB6BF ; 
+}
+.spanDetail_col3{
+	font-family: Gothic A1;
+	font-size: 11pt;
+	font-weight: 400; 
+	color: #AEB6BF ; 
+}
+ 
+.detailListContainer {
+	display: inline-block;  
+	position: relative; 
+	width: 900px;	
+	margin: 10px 5px;    
+	padding: 3px;  
+	border: 1px dotted #F4F6F7; 
+	border-radius: 2px; 
+	box-shadow: 5px 5px #F4F6F7;
+} 
+.detailTR{
+	border-bottom: 2px dotted #ECF0F1;
+}   
+
+.backDetailBtn{
+	background-color: #F8F9F9;
+	border: none;
+	border-radius: 2px;
+	width: 80px; 
+	font-family: FrankRuehl;
+	color: #34495E;
+	font-size: small;
+	padding-left: 0px; 
+	margin-left: 10px;
+}
+
+.backDetailBtn:hover {
+	background-color: #E8F8F5;
+	color: #34495E;
+	cursor: pointer;
+}
+.detailSearchBtnDel{
+	background-color: white; 
+	border: none;
+	border-radius: 2px;
+	width: 40px;  
+	font-family: FrankRuehl;
+	color: gray; 
+	font-size: small;
+	padding-left: 0px;
+}
+
+.detailSearchBtnDel:hover {
+	background-color: #E8F8F5;
+	color: red; 
+	cursor: pointer;
+}
+	
+
+

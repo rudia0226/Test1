@@ -1,0 +1,176 @@
+@charset "UTF-8";
+/*테이블*/
+.showbtn{
+	background-color: #F8F9F9;;
+    outline: none; 
+    border: none;  
+    border-radius: 2px;
+    color: #34495E;;
+    padding: 4px 10px; 
+    font-size: small;
+}
+.showbtn:hover{
+	background-color: #E8F8F5; 
+	cursor: pointer; 
+	color: #34495E;
+}
+#maintable {
+	width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid gray;
+	height: auto;
+}
+#showDiv textarea {
+	font-family: Gothic A1;
+	font-size: 11pt;
+	border: none;
+	color: gray;
+	background-color: #f2fbf9;
+	outline: none;
+	width: 350px;
+	height: 50px; 
+	resize: none;
+	
+}
+
+#showDiv textarea :placeholder {
+	color: white;
+}
+.txtareaInsert::-webkit-scrollbar {
+	width: 10px;
+	background: transparent;
+}
+
+#maintable button {
+	background-color: #e8eaea;
+	border: none; 
+	border-radius: 3px;
+	width: 100%;
+	font-family: Gothic A1;
+	font-size: 11pt; 
+	color: #34495E;
+	margin-top: 2px;
+	
+}
+#maintable button:hover{
+	border: 1px solid #AEB6BF; 
+	background-color: #FDEDEC;
+	color: #34495E;
+	cursor: pointer; 
+}
+.closeBtn{
+	background-color: #e8eaea;
+	border: none;
+	width: 60px;
+	border-radius: 2px;
+}
+.closeBtn:hover{ 
+	border: 1px solid #AEB6BF; 
+	background-color: #fcf8e3;
+	color: #34495E;
+	cursor: pointer; 
+}
+.inBtn{
+	background-color: #e8eaea;
+	border: none;
+	width: 60px;
+	border-radius: 2px;
+	align : right;
+	
+}
+.inBtn:hover{
+	border: 1px solid #AEB6BF; 
+	background-color: #fcf8e3;
+	color: #34495E; 
+	cursor: pointer; 
+}
+#showDiv select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	outline: 0; 
+	box-shadow: none;
+	width: 70px;
+	height: auto;
+	border: none;
+	/* border-bottom: 2px solid #31354a; */
+	color: gray;
+	font-family: Gothic A1;
+	background: #f2fbf9;
+	margin-right: 4px; 
+}
+#showDiv select::-ms-expand {
+	display: none;
+}
+#showDiv select::after {
+	content: '\25BC';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0 1em;
+	pointer-events: none;
+	border:none;
+}
+#showDiv select:hover {
+	background: #e8eaea;
+	cursor: pointer;
+}
+#showDiv select:hover::after {
+	color: #f39c12;
+}
+#showDiv input {
+	border: none;
+	color: gray;
+	background: #f2fbf9;
+	outline: none;
+	width: auto;
+	 
+}
+
+#showDiv span {
+	border: none;
+	color: gray;
+	background: #f2fbf9;
+	outline: none;
+	width: auto;
+	margin-right: 8px;
+}
+
+
+
+#showDiv th {
+	height: 10%;
+}
+
+#memoTd {
+	column-span: 2;
+}
+
+#title{
+	height: 13px;
+	font-size: 15px;
+}
+/********************************************************/
+#showDiv { 
+	opacity : 0.9;
+	border-radius: 10px;
+	z-index: 500; 
+	width: 700px;
+	height: 500px;
+	background-color: #f2fbf9;
+	position: fixed;
+	display: none;
+	margin: 5px;
+	padding: 8px;
+	/* border: 3px solid gray; */ 
+	overflow-y: scroll;
+	box-shadow: 10px 10px #9cafb8;
+}
+#showDiv::-webkit-scrollbar {
+	width: 10px;
+	background: transparent;
+}
+

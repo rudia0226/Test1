@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sm.household.todo.TodoMapper">
+
+	<select id="todoList" resultType="com.sm.household.todo.TodoBean">
+
+	<![CDATA[
+	select * 
+			from (select rownum as rnum, A.*
+				from (select * from TODO_DATA where User_Email = #{User_Email} order by todo_id desc) A
+				where rownum <= #{endNum} )
+			where rnum >= #{startNum}
+	]]>
+	</select>
+	
+	<insert id="todoWrite" parameterType="com.sm.household.todo.TodoBean">
+		insert into Todo_data
+		values(
+			todo_data_seq.nextval,
+			#{Todo_Title},
+			#{User_Email}
+		)
+	</insert>
+
+	<delete id="todoDelete">
+		delete from todo_data
+		where todo_id = #{todo_id}
+	</delete>
+	
+	
+	<select id="getTodoCount" resultType="int">
+		select count(*) from todo_data
+		where User_Email = #{User_Email}
+	</select>
+</mapper>

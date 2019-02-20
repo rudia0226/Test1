@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+#memTitle {
+	position: fixed;
+	background-color: #E8F8F5;
+	top: 0px;
+	width: 100%;
+	height: 60px; 
+}
+.memTitleText{
+	font-family: FrankRuehl;
+}
+.memContainer{
+	margin-left: auto;  
+	margin-right: auto;
+}
+#memContent {
+	margin-left: auto; 
+	margin-right: auto;
+	height: 230px; 
+	margin-top: 180px;  
+}
+
+#memBottom {
+	position: fixed;
+	background-color: #E8F8F5;
+	bottom: 0px;
+	width: 100%;
+	height: 30px;
+}
+
+#title{
+	color: #566573;
+	margin-top: 30px;
+	font-size: 18pt;
+	font-weight: 900;
+}
+#joinLoginSelect{
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+}
+#Bottom{
+	margin-left: auto;
+	margin-right: auto;
+	color: #566573;
+	font-size: small;
+}
+

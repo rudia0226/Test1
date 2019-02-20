@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sm.household.calendar.HcalendarMapper">
+
+		
+	<!-- 변동비 201에 해당하는 하루의 총 합계비용 -->
+	<select id="seldailySum" 
+		parameterType="com.sm.household.calendar.Hcalendar"
+		resultType="com.sm.household.calendar.HsumAmount">
+	select b.Data_Date as bdate, sum(b.Data_Amount) as amount
+	from Book_data b, Ca_info c 
+	where b.Ca_Key = c.Ca_Key and c.Ca_Type=201 and b.User_Email=#{User_Email}
+	group by b.Data_Date order by b.Data_Date
+	</select>
+	
+	<!-- 선택된 날짜값의 정보를 가져오기 -->
+	<select id="getDataByDate" 
+		parameterType="com.sm.household.calendar.Hcalendar" 
+		resultType="com.sm.household.calendar.Hcalendar">
+		SELECT b.Data_Date, c.Ca_Group, c.Ca_Value, b.Data_Amount, b.Data_Memo 
+		FROM Book_data b, Ca_info c
+		WHERE b.Ca_Key = c.Ca_Key and b.Data_Date =#{Data_Date} and b.User_Email=#{User_Email}
+	</select>
+		
+	<!-- 새롭게 목표금액 설정해주기 -->
+	<update id="setGoalAmount" parameterType="com.sm.household.calendar.Hcalendar">
+		 UPDATE User_info SET goal_amount=#{goal_amount} where User_Email=#{User_Email}
+	</update>
+	
+	<!-- 최근의 목표 금액 -->
+	<select id="getGoalAmount" 
+		parameterType="com.sm.household.calendar.Hcalendar"
+		resultType="int">
+		select goal_amount from User_info where User_Email=#{User_Email}
+	</select>
+	
+	
+	<!-- 가입일 가져오기 -->
+	<select id="getJoinDate"
+		parameterType="com.sm.household.calendar.Hcalendar"
+		resultType="Date">
+		select join_date from User_info where User_Email=#{User_Email}
+	</select>
+</mapper>

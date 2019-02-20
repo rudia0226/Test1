@@ -1,0 +1,270 @@
+/* 메인 창*/
+.mainBtn {
+	background-color: #F8F9F9;
+	border: none;
+	border-radius: 2px;
+	width: 100px;
+	font-family: FrankRuehl;
+	color: #34495E;
+	font-size: small;
+	padding-left: 0px;
+	padding: 5px 20px;
+}
+
+.mainBtn:hover {
+	background-color: #E8F8F5;
+	color: #34495E;
+	cursor: pointer;
+}
+
+.indexIMG {
+	width: 150px;
+}
+
+.MenuIMG {
+	width: 30px;
+	height: 30px;
+}
+
+.MenuIMG:hover {
+	cursor: pointer;
+}
+
+/* 로그인 창*/
+.h1Login {
+	font-family: FrankRuehl;
+	font-size: 15pt;
+	font-weight: 600;
+	color: #34495E;
+}
+
+.btnLogin {
+	margin-top: 5px; 
+	background-color: #F8F9F9;
+	border: none;
+	border-radius: 2px;
+	width: 230px;
+	height: 30px;
+	font-family: FrankRuehl;
+	color: #34495E;
+	font-size: small;
+	padding-left: 0px;
+	padding: 0px;
+	float: left;
+}
+
+.btnLogin:hover {
+	background-color: #E8F8F5;
+	color: #34495E;
+	cursor: pointer;
+}
+
+#labelLogin {
+	font-family: FrankRuehl;
+	font-size: 12pt;
+	color: #566573;
+}
+
+.inputLogin {
+	border: none;
+	border-bottom: #CCD1D1 solid 1px;
+	color: gray;
+	background: transparent;
+	outline: none;
+	width: 200px;
+}
+
+/* 회원가입 창*/
+.joinH {
+	font-family: FrankRuehl;
+	font-size: 15pt;
+	color: #566573;
+}
+
+.joinTblTd1 {
+	font-family: FrankRuehl;
+	font-size: 10pt;
+}
+
+.joinInputId {
+	border: none;
+	border-bottom: #CCD1D1 solid 1px;
+	color: gray;
+	background: transparent;
+	outline: none;
+}
+
+.joinInput {
+	border: none;
+	border-bottom: #CCD1D1 solid 1px;
+	color: gray;
+	background: transparent;
+	outline: none;
+	width: 200px;
+}
+
+.joinInput:placeholder {
+	color: white;
+}
+
+.checkBtn {
+	background-color: #F8F9F9;
+	border: none;
+	border-radius: 2px;
+	width: 60px;
+	font-family: FrankRuehl;
+	color: #34495E;
+	font-size: small;
+	padding-left: 0px;
+	padding: 0px;
+}
+
+.checkBtn:hover {
+	background-color: #E8F8F5;
+	color: #34495E;
+	cursor: pointer;
+}
+
+.joinSelect {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	outline: 0;
+	box-shadow: none;
+	border: 0 !important;
+	width: 200px;
+	height: 20px;
+	border: none;
+	color: gray;
+	font-family: FrankRuehl;
+	background: #F8F9F9;
+}
+
+.joinSelect::-ms-expand {
+	display: none;
+}
+
+.joinSelect::after {
+	content: '\25BC';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0 1em;
+	pointer-events: none;
+}
+
+.joinSelect:hover {
+	background: #E8F8F5;
+}
+
+.joinSelect:hover::after {
+	color: #f39c12;
+}
+
+#joinBtn {
+	background-color: #F8F9F9;
+	border: none;
+	border-radius: 2px;
+	width: 300px;
+	font-family: FrankRuehl;
+	color: #34495E;
+	font-size: small;
+	padding-left: 0px;
+	padding: 5px 5px;
+}
+
+#joinBtn:hover {
+	background-color: #E8F8F5;
+	color: #34495E;
+	cursor: pointer;
+}
+
+.joinBtn2 {
+	background-color: #F8F9F9;
+	border: none;
+	border-radius: 2px;
+	width: 300px;
+	font-family: FrankRuehl;
+	color: #34495E;
+	font-size: small;
+	padding-left: 0px;
+	padding: 5px 5px;
+}
+
+.joinBtn2:hover {
+	background-color: #E8F8F5;
+	color: #34495E;
+	cursor: pointer;
+}
+
+/* 회원정보 수정 창*/
+.updateLabel {
+	font-family: FrankRuehl;
+	font-size: 12pt;
+	color: #566573;
+}
+.updateBTN {
+	background-color: #F8F9F9;
+	border: none;
+	border-radius: 2px;
+	width: 280px;
+	font-family: FrankRuehl;
+	color: #34495E;
+	font-size: small;
+	padding-left: 0px;
+	padding: 5px 5px;
+}
+.updateBTN:hover {
+	background-color: #E8F8F5;
+	color: #34495E;
+	cursor: pointer;
+}
+.updateInput {
+	border: none;
+	border-bottom: #CCD1D1 solid 1px;
+	color: gray;
+	background: transparent;
+	outline: none; 
+	width: 180px; 
+}
+
+/* 회원정보 보기 창*/
+.infoBTN {
+	background-color: #F8F9F9;
+	border: none;
+	border-radius: 2px;
+	width: 300px;
+	height: 30px;
+	font-family: FrankRuehl;
+	color: #34495E;
+	font-size: small;
+	padding-left: 0px;
+	padding: 5px 5px;
+}
+
+.infoBTN:hover {
+	background-color: #E8F8F5;
+	color: #34495E;
+	cursor: pointer;
+}
+
+.infoTD1{
+	font-family: FrankRuehl;
+	font-size: 12pt;  
+	color: #808B96; 
+	height: 25px;
+} 
+
+.infoTD2{ 
+ 	font-size: 11pt; 
+	font-family: Gothic A1; 
+	color: #D6DBDF;  
+	height: 25px; 
+}
+.infoTD2:hover{ 
+	color: #73C6B6;   
+	cursor: pointer;
+}
+

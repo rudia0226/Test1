@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="kr">
+<head>
+<meta charset="UTF-8">
+<title>http://www.blueb.co.kr</title>
+
+<link rel='stylesheet prefetch'
+	href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch'
+	href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300'>
+
+<style rel="stylesheet">
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
+	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
+	b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+	details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+	output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
+	display: block
+}
+
+body {
+	line-height: 1
+}
+
+ol, ul {
+	list-style: none
+}
+
+blockquote, q {
+	quotes: none
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+a {
+	text-decoration: none;
+}
+
+/**
+ * Hidden fallback
+ */
+[hidden] {
+	display: none;
+	visibility: hidden;
+}
+
+/**
+ * Styling navigation
+ */
+header {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 15rem;
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+/**
+ * Styling top level items
+ */
+.nav a, .nav label {
+	display: block;
+	padding: .85rem;
+	color: #566573;
+	background-color: #E8F8F5;
+	box-shadow: inset 0 -1px #1d1d1d;
+	-webkit-transition: all .25s ease-in;
+	transition: all .25s ease-in;
+}
+
+.nav a:focus, .nav a:hover, .nav label:focus, .nav label:hover {
+	color: #566573;
+	background: white;
+}
+
+.nav label {
+	cursor: pointer;
+}
+
+/**
+ * Styling first level lists items
+ */
+.group-list a, .group-list label {
+	padding-left: 2rem;
+	background: #566573;
+	box-shadow: inset 0 -1px #373737;
+	color: #e8f8f5;
+}
+
+.group-list a:focus, .group-list a:hover, .group-list label:focus,
+	.group-list label:hover {
+	background: white;
+	color: #566573;
+}
+
+/**
+ * Hide nested lists
+ */
+.group-list, .sub-group-list, .sub-sub-group-list {
+	height: 100%;
+	max-height: 0;
+	overflow: hidden;
+	-webkit-transition: max-height .5s ease-in-out;
+	transition: max-height .5s ease-in-out;
+}
+
+.nav__list input[type=checkbox]:checked+label+ul {
+	/* reset the height when checkbox is checked */
+	max-height: 1000px;
+}
+
+/**
+ * Rotating chevron icon
+ */
+label>span {
+	float: right;
+	-webkit-transition: -webkit-transform .65s ease;
+	transition: transform .65s ease;
+}
+
+.nav__list input[type=checkbox]:checked+label>span {
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+/**
+ * Styling footer
+ */
+footer {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	background-color: #566573;
+}
+
+.soc-media {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+.soc-media a {
+	font-size: 1.25rem;
+	color: rgba(255, 255, 255, 0.65);
+	-webkit-transition: color .25s ease-in;
+	transition: color .25s ease-in;
+}
+
+.soc-media a:focus, .soc-media a:hover {
+	color: rgba(255, 255, 255, 0.2);
+}
+
+.nav__list img {
+	width: 20px;
+	padding-right: 10px;
+}
+</style>
+</head>
+<body>
+
+	<header role="banner">
+		<nav class="nav" role="navigation">
+			<ul class="nav__list">
+
+				<!--      <li><a href="#"><img src="/resources/icon/menuicon(4).png">Calendar</a></li> -->
+				<li><a href="location.href='calendar'"><img
+						src="/resources/icon/menuicon(4).png">Calendar</a></li>
+				<li><a href="#"><img src="/resources/icon/menuicon(5).png">Details
+						/ Search</a></li>
+				<li><a href="location.href='chart.go'"><img
+						src="/resources/icon/menuicon(3).png">Chart</a></li>
+				<li><a href="location.href='todoList'"><img
+						src="/resources/icon/menuicon(2).png">To do List</a></li>
+				<li><a href="location.href='boardList'"><img
+						src="/resources/icon/menuicon(1).png">Memo</a></li>
+
+
+				<li><input id="group-1" type="checkbox" hidden /> <label
+					for="group-1"><span class="fa fa-angle-right"></span><img
+						src="menuicon(6).png">Setting</label>
+					<ul class="group-list">
+						<li>
+						<li><a href="location.href='caedit.go'">Category</a></li>
+						<li><a href="location.href='member.infoView'">Information</a></li></li>
+			</ul>
+			</li>
+
+
+			</ul>
+
+		</nav>
+		<footer>
+			<ul class="soc-media">
+				<li><a href="location.href='logout'" target="_blank">로그아웃</a></li>
+			</ul>
+		</footer>
+	</header>
+
+</body>
+</html>

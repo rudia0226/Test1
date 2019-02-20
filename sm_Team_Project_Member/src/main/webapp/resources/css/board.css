@@ -1,0 +1,267 @@
+/* boardBtn */
+.boardBtn{
+	width: 150px; 
+	height: 40px;
+	border: none;  
+	color: #34495E;
+	font-weight: 500;
+	background-color: #F8F9F9;
+	border-radius: 2px;
+	outline: none;	 
+	padding: 5px 15px;
+}
+.boardBtn:hover{
+	cursor: pointer; 
+	background-color: #E8F8F5;
+}
+.boardBtn1{
+	border: none;
+	color: gray;
+	font-weight: 400;
+	outline: none;	  
+	border-radius: 5px;
+	padding: 2px  30px; 
+	background-color: white;
+} 
+.boardBtn1:hover{
+	color: red;
+	cursor: pointer;  
+	font-weight: 600;
+	background-color: #ccccccc;
+}
+.boardBtn2{
+	width: 130px;
+	border: none;
+	color: gray;
+	outline: none;	  
+	border-radius: 5px;
+	font-weight: bold; 
+	padding: 5px 10px;  
+	background-color: #E8F8F5;  
+} 
+.boardBtn2:hover{
+	color: gray;  
+	cursor: pointer;
+	font-weight: bolder; 
+	background-color: #cccccc; 
+} 
+
+.boardBottom{ 
+	position: relative;
+	text-align: center;
+	/* position: absolute; 
+	bottom: 3px; */ 
+}
+ 
+/* boardList */
+.boardArea2{ 
+	margin-left: auto; 
+	margin-right: auto;
+	margin-top: -60px;  
+}   
+
+.boardArea1{
+	width: 1300px;
+	height: auto; 
+	text-align: center; 
+	padding: 10px;
+	font-size:10pt;
+	display: table-cell; 
+	vertical-align: middle;
+}
+	
+.boardArea {
+	display: inline-block;  
+	position: relative; 
+	width: 280px;	height: 200px;
+	margin: 10px 5px;
+	padding: 3px;
+	border: 1px dotted #F4F6F7; 
+	border-radius: 2px; 
+	box-shadow: 5px 5px #F4F6F7; 
+} 
+.boardListTitle{
+	color: gray; 
+	font-size: 12pt; 
+	font-family: Gothic A1;
+}
+.boardUserName { 
+	color: #AEB6BF; 
+	font-family: Gothic A1;
+	font-size: 4px;
+	float: left; 
+	margin-left: 25px;
+	margin-top: -2px;
+}
+.boardContentsList{
+	width: 300px;	height: 50px;
+	margin-top: 15px;
+	color: #AEB6BF;
+	font-size: 11pt;
+	font-family: Gothic A1;
+	display:inline-block;
+	overflow: scroll;
+	font-size:10pt;
+	-ms-overflow-style: none;
+	-webkit-transition: all 2s ease-in;
+} 
+.boardContentsList:hover{
+	font-size: larger;
+}
+::-webkit-scrollbar { /*  웹킷방식 브라우저(크롬에서만)에서 작동 */
+		display:none;
+}	
+
+#boardContents{
+	margin-top: 10px;
+	resize: none; 
+	width: 260px;
+	height: 200px;
+	border-radius: 3px;
+	font-size: 10pt;  
+	word-wrap: break-word; 
+	border: #F4F6F7 dotted 1px;
+	box-shadow: 5px 5px #F4F6F7;   
+}
+#boardContents:focus{
+	outline: 0;
+}
+.boardWriteViewLabel{ 
+	color: gray;
+	font-size: 15pt; 
+	font-family: Gothic A1;
+}
+.boardWriteViewLabel2{ 
+	color: gray;
+	font-size: 13pt;  
+	font-family: Gothic A1;
+}
+#boardContentsMsg{
+	color: #cccccc;
+	font-size: 13pt; 
+	font-family: Gothic A1;
+	margin-top: 0px;
+} 
+.boardWriteViewInput{
+	border: none;
+	border-bottom: #ECF0F1 solid 1px;
+	width: 230px;  
+	color: gray;
+	background: transparent; 
+	outline: none;
+} 
+.boardWriteViewInput:focus{
+	background-color: #F8F9F9;
+}
+  
+
+/* todo */
+#todoOuter{
+	border: none;
+	margin: auto; 
+}
+
+.todoTable { 
+	display: inline-block;  
+	position: relative; 
+	width: 600px;	height: 250px;
+	margin: 10px 5px;
+	padding: 3px;
+	border: 1px dotted #F4F6F7; 
+	border-radius: 2px; 
+	box-shadow: 5px 5px #F4F6F7;
+} 
+
+.todoTable td {
+	padding: 7px;
+}
+.todoPage{
+	text-align: center;
+	
+}
+.todoPage a:link,.todoPage a:visited, .todoPage a:active{
+	text-decoration: none;
+	color: black;
+}
+.todoPage a:hover{
+	text-decoration: none;
+	color: white; 
+}
+
+.todoNowPage{
+	color: #cccccc;	
+	font-size: larger;
+	font-weight: bolder; 
+}
+.todoInput {
+	display: none;
+}
+
+.pageIdx{
+	cursor: pointer;
+} 
+.boardBtn3{ 
+	font-family: FrankRuehl;
+	font-size: 10pt;
+	border: none;  
+	color:#AEB6BF; 
+	background-color: white; 
+}   
+.boardBtn3:hover{
+	color: red;  
+	cursor: pointer;
+	font-weight: bolder; 
+} 
+.boardBtn4{
+	width: 80px;
+	border: none;
+	color: gray;
+	outline: none;	  
+	border-radius: 5px;
+	padding: 5px 10px;  
+	font-family: Gothic A1;
+	background-color: #E8F8F5;  
+} 
+.boardBtn4:hover{
+	color: gray;  
+	cursor: pointer;
+	background-color: #cccccc; 
+} 
+.todoText{
+	color: #AEB6BF ; 
+	font-size: 10pt;
+	width: 500px;
+	font-weight: bold;
+	font-family: Gothic A1; 
+}
+.todoText:hover{ 
+	cursor: default;
+}
+.todotitleTD1{
+	border-bottom: 1px dotted #ECF0F1; 
+	color: #AEB6BF ;
+	font-size: 10pt;
+	width: 500px; 
+	font-family: Gothic A1;  
+}
+.todotitleTD1:hover{
+	cursor: default;
+}
+.todotitleTD2{
+	border-bottom: 1px dotted #ECF0F1; 
+	color: #AEB6BF ;  
+	font-size: 11pt;    
+	font-weight:lighter;
+	font-family: FrankRuehl;   
+}
+.Todo_Title{
+	border: none;
+	border-bottom: #ECF0F1 solid 1px;
+	width: 230px;  
+	color: gray; 
+	background: transparent; 
+	outline: none;
+} 
+.Todo_Title:focus{
+	background-color: #F8F9F9;
+}

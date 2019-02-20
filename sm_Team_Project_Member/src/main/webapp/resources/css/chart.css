@@ -1,0 +1,30 @@
+.chartDIV {
+	margin-top: -80px;
+}
+
+.ca_span{
+	font-family: FrankRuehl;
+	font-size: 12pt;
+	color: #566573;
+}
+
+#chart_wrapper {
+	width: 500px;
+	height: 500px;
+} 
+
+.ca_group{
+  cursor: pointer;
+}
+.chart_statistics{
+	margin-top: 15px;  
+	font-family: Gothic A1; 
+	font-size: 12pt;
+	color: #34495E  ;  
+} 
+.chart_dataContents{ 
+	margin-top: 5px; 
+	font-family: Gothic A1;
+	font-size: 11pt;
+	color: #AEB6BF ;   
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sm.household.bookData.BookDataMapper">
+	<select id="getPayType" parameterType="String" resultType="com.sm.household.bookData.PayBean">
+			select * from pay_info where User_Email=#{User_Email}
+	</select>
+	<select id="getCateValue" parameterType="com.sm.household.bookData.CateBean" resultType="com.sm.household.bookData.CateBean">
+			select * from ca_info where ca_Group = #{ca_Group} and User_Email=#{User_Email}
+	</select>
+	
+	<select id="getPayId" parameterType="com.sm.household.bookData.PayBean" resultType="com.sm.household.bookData.PayBean">
+			select * from pay_info where pay_Value = #{pay_Value} and User_Email=#{User_Email}
+	</select>
+	
+	<select id="getCateId" parameterType="com.sm.household.bookData.CateBean" resultType="int">
+			select * from ca_info where ca_Value = #{ca_Value} and User_Email=#{User_Email}
+	</select>
+	
+	<insert id="insertData" parameterType="com.sm.household.bookData.BookDataBean">
+		insert into Book_data(Data_No,Data_Date, Data_Amount,Data_Memo,User_Email,Ca_Key,Pay_Id) values(Book_data_Seq.nextval,
+			#{Data_Date}, #{Data_Amount},#{Data_Memo},#{User_Email},#{Ca_Key},#{Pay_Id}
+		)
+	</insert>
+	
+	<delete id="deleteData" parameterType="com.sm.household.bookData.BookDataBean"> 
+		DELETE FROM Book_data 
+		where Data_No = #{Data_No}
+	</delete>
+	
+	<select id="getBookData" parameterType="com.sm.household.bookData.BookDataBean" resultType="String">
+		<!-- select * from Book_data where User_Email=#{User_Email} -->
+		select max(data_no) from Book_data where User_Email=#{User_Email}
+	</select>
+	
+	
+	<update id="updateData" parameterType="com.sm.household.bookData.BookDataBean">
+			update Book_data set data_Date = #{data_Date}, data_Amount = #{data_Amount},data_Memo = #{data_Memo},
+			ca_Key = #{ca_Key},pay_Id = #{pay_Id}
+			where data_No = #{data_No} and User_Email=#{User_Email}
+			<!-- update book_data set data_date = sysdate , data_amount=9999 where ca_key = 13; -->
+	</update>
+	
+	
+</mapper>

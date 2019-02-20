@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sm.household.board.BoardMapper">
+	
+	<select id="boardList" resultType="com.sm.household.board.BoardBean" parameterType="String">
+		select * from Board_data
+		where User_Email = #{User_Email}
+		order by board_id
+	</select>
+	
+	<insert id="boardWrite" parameterType="com.sm.household.board.BoardBean">
+		insert into board_data
+		values(
+			board_data_seq.nextval,
+			#{Board_Title},
+			#{Board_Content},
+			#{User_Email})
+	</insert>
+
+	<update id="boardEdit" parameterType="com.sm.household.board.BoardBean">
+		update board_data 
+		set	Board_Title =#{Board_Title},
+				Board_Content = #{Board_Content}
+		where Board_Id = #{Board_Id}
+	</update>
+	
+	<delete id="boardDelete">
+		delete from board_data
+		where Board_Id = #{Board_Id}
+	</delete>
+	
+</mapper>

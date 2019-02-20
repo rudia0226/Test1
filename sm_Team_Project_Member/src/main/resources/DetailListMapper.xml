@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sm.household.detailList.DetailListMapper">
+
+	<select id="detailList"
+		resultType="com.sm.household.detailList.BookCa">
+
+
+
+<![CDATA[
+		
+		select * 
+			from (select rownum as rnum, A.*
+			from (select * 
+				from ca_info c  
+				inner join book_data b  on c.ca_key = b.ca_key
+				inner join pay_info p on b.pay_id = p.pay_id
+				where b.user_email= #{User_Email}
+				order by Data_Date desc
+				) A
+				where rownum <= #{endNum} )
+			where rnum >= #{startNum}
+
+
+		]]>
+
+	</select>
+
+
+	<select id="searchList"
+		parameterType="com.sm.household.detailList.BookCa"
+		resultType="com.sm.household.detailList.BookCa">
+
+		select * 
+				from ca_info c  
+				inner join book_data b  on c.ca_key = b.ca_key
+				inner join pay_info p on b.pay_id = p.pay_id
+				where(c.Ca_Value like '%'||#{Ca_Value}||'%' 
+				or b.Data_Memo like '%'||#{Ca_Value}||'%'
+				or p.Pay_Value like '%'||#{Ca_Value}||'%')
+				and b.User_Email = #{User_Email} 
+				and Data_Date between #{Data_Date} and LAST_DAY(#{Data_Date})
+				order by Data_Date
+ 
+	</select>
+
+
+	<select id="getDetailCount" resultType="int">
+		select count(*) from
+		ca_info natural join book_data
+		where User_Email = #{User_Email}
+	</select>
+
+
+	<select id="getsearchList"
+		resultType="com.sm.household.detailList.BookCa">
+		select * 
+				from ca_info c  
+				inner join book_data b  
+				on c.ca_Key = b.ca_Key
+				inner join pay_info p 
+				on b.pay_id = p.pay_id
+				where b.User_Email = #{User_Email}
+				order by b.Data_Date 
+	</select>
+	
+	<delete id="delDetailList" parameterType="com.sm.household.detailList.BookCa">
+		delete from 
+			(select * 
+			from ca_info c inner join book_data b
+			on c.ca_Key = b.ca_key
+			where c.ca_key= #{ca_Key} and b.user_email=#{User_Email})
+	
+	</delete>
+	
+	
+	
+</mapper>	
+
