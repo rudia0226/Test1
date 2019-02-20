@@ -33,7 +33,7 @@ public class ChartController {
 	public @ResponseBody Map<String,Object>  getChartList(@RequestParam MultiValueMap<String,Object> parametersMultiMap) throws Exception{
 		long start  = System.currentTimeMillis();
 		Map<String,Object> map = parametersMultiMap.toSingleValueMap();
-		List<ChartVO> orderList = chartService.searchChart(map);
+		List<ChartVO> orderList = chartService.searchChart(map); 
 		long end = System.currentTimeMillis();
 		Map<String,Object> result = new HashMap<String,Object>();
 		String time = String.format("%.2f", (end - start)/1000.0); 

@@ -1,3 +1,8 @@
+-- Used Index
+CREATE INDEX IDX_SALE_TBL ON SALE_TBL 
+(AREA_CD);
+
+
 -- Used Function
 
 
