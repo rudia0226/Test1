@@ -1,0 +1,60 @@
+@charset "EUC-KR";
+
+#drRegTbl {
+	width: 300px;
+	height: 180px;
+	border: #FFE082 solid 3px;
+	color:#FFE082;
+	font-size: 14pt;
+	font-weight: 900;
+}
+
+#drRegBtn {
+	border: none;
+	background-color: transparent;
+	width: 94%;
+	color: #FFE082;
+	font-weight: 800;
+	height: 90%;
+	font-size: 13pt;
+}
+#drRegBtn:hover{
+	background-color: #FFE082;
+	color:#212121;
+}
+.drRegInput{
+	width:90%;
+	border:#FFE082 solid 2px;
+	background-color:transparent;
+	color:white;
+	height: 50px;
+	padding-left: 10px;
+	font-size: 12pt;
+}
+#drArea {
+	margin-top: 70px;
+	width: 950px;
+}
+
+.drItem {
+	float:left;
+	width: 200px;
+	border: #FFE082 solid 3px;
+	font-size: 10pt;
+	margin: 10px;
+	height:80px;
+	color:white;
+}
+
+.drItem:hover {
+	border: white solid 3px;
+}
+
+.drImgTd {
+	width: 35px;
+}
+
+.drTitle {
+	font-weight: 900;
+	color:#FFE082;
+}

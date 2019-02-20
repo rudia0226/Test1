@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.ihwac2.vote.VoteMapper">
+	<delete id="delVoteItem">
+		delete from ihwac2_vote_item
+	</delete>
+	<delete id="delVoteVote">
+		delete from ihwac2_vote_vote
+	</delete>
+	<select id="getVote" resultType="com.kwon.ihwac2.vote.Vote">
+		select * from ihwac2_vote
+	</select>
+	<select id="getVoteItem"
+		resultType="com.kwon.ihwac2.vote.VoteItem">
+		select * from ihwac2_vote_item order by ivi_no
+	</select>
+	<update id="regVote" parameterType="com.kwon.ihwac2.vote.Vote">
+		update ihwac2_vote
+		set iv_title=#{iv_title}, iv_owner=#{iv_owner}, iv_count=0
+	</update>
+	<insert id="regVoteItem"
+		parameterType="com.kwon.ihwac2.vote.VoteItem">
+		insert into ihwac2_vote_item values(#{ivi_no},
+		#{ivi_item}, 0, 0)
+	</insert>
+	<update id="updateVoteCount">
+		update ihwac2_vote set iv_count = iv_count + 1
+	</update>
+	<update id="updateVoteItemCount"
+		parameterType="com.kwon.ihwac2.vote.VoteVote">
+		update ihwac2_vote_item
+		set ivi_count = ivi_count + 1,
+		ivi_percent = (ivi_count + 1) / (select iv_count from ihwac2_vote)
+		where ivi_no=#{ivv_ivi_no}
+	</update>
+	<insert id="vote" parameterType="com.kwon.ihwac2.vote.VoteVote">
+		insert into ihwac2_vote_vote
+		values(#{ivv_im_id}, #{ivv_ivi_no})
+	</insert>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.ihwac2.member.MemberMapper">
+	<delete id="bye" parameterType="com.kwon.ihwac2.member.Member">
+		delete from ihwac2_member where
+		im_id=#{im_id}
+	</delete>
+	<select id="getMemberById"
+		parameterType="com.kwon.ihwac2.member.Member"
+		resultType="com.kwon.ihwac2.member.Member">
+		select * from ihwac2_member
+		where im_id=#{im_id}
+	</select>
+	<select id="getMemberById2"
+		parameterType="com.kwon.ihwac2.member.Member"
+		resultType="com.kwon.ihwac2.member.Member">
+		select * from ihwac2_member
+		where im_id=#{im_id}
+	</select>
+	<insert id="join" parameterType="com.kwon.ihwac2.member.Member">
+		insert into ihwac2_member
+		values(#{im_id}, #{im_pw}, #{im_name},
+		#{im_addr1}, #{im_addr2},
+		#{im_addr3}, #{im_img})
+	</insert>
+	<update id="update"
+		parameterType="com.kwon.ihwac2.member.Member">
+		update ihwac2_member
+		set im_pw=#{im_pw},
+		im_name=#{im_name},
+		im_addr1=#{im_addr1}, im_addr2=#{im_addr2},
+		im_addr3=#{im_addr3}, im_img=#{im_img}
+		where
+		im_id=#{im_id}
+	</update>
+</mapper>

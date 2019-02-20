@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.ihwac2.dataroom.DataroomMapper">
+	<delete id="delete"
+		parameterType="com.kwon.ihwac2.dataroom.Data">
+		delete from ihwac2_dataroom where id_id=#{id_id}
+	</delete>
+	<select id="getAllData"
+		resultType="com.kwon.ihwac2.dataroom.Data">
+		select * from ihwac2_dataroom order by id_title
+	</select>
+	<insert id="upload"
+		parameterType="com.kwon.ihwac2.dataroom.Data">
+		insert into ihwac2_dataroom
+		values(ihwac_dataroom_seq.nextval, #{id_owner}, #{id_title},
+		#{id_file}, sysdate)
+	</insert>
+</mapper>

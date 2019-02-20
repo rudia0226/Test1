@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.ihwac2.community.CommunityMapper">
+	<delete id="delMsg"
+		parameterType="com.kwon.ihwac2.community.Msg">
+		delete from ihwac2_msg
+		where im_no=#{im_no}
+	</delete>
+	<select id="getAllMember"
+		resultType="com.kwon.ihwac2.member.Member">
+		select * from ihwac2_member
+		order by im_id
+	</select>
+	<select id="getMsg"
+		parameterType="com.kwon.ihwac2.community.Msg"
+		resultType="com.kwon.ihwac2.community.Msg">
+		select * from ihwac2_msg
+		where im_to=#{im_to}
+		order by
+		im_date desc
+	</select>
+	<insert id="sendMsg"
+		parameterType="com.kwon.ihwac2.community.Msg">
+		insert into ihwac2_msg values(
+		ihwac2_msg_seq.nextval,
+		#{im_from}, #{im_to}, #{im_txt}, sysdate)
+	</insert>
+</mapper>

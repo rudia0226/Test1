@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.ihwac2.sns.SNSMapper">
+	<delete id="deleteSNSMsg"
+		parameterType="com.kwon.ihwac2.sns.SNSMsg">
+		delete from ihwac2_sns 
+		where is_no=#{is_no}
+	</delete>
+	<delete id="deleteSNSRepl"
+		parameterType="com.kwon.ihwac2.sns.SNSRepl">
+		delete from ihwac2_sns_repl where isr_no=#{isr_no}
+	</delete>
+	<delete id="deleteSNSRepl2"
+		parameterType="com.kwon.ihwac2.sns.SNSMsg">
+		delete from ihwac2_sns_repl where isr_is_no=#{is_no}
+	</delete>
+	<select id="getAllSNSMsg"
+		resultType="com.kwon.ihwac2.sns.SNSMsg">
+		select * 
+		from ihwac2_sns, ihwac2_member 
+		where is_owner = im_id
+		order by is_date desc
+	</select>
+	<select id="getSNSRepl"
+		parameterType="com.kwon.ihwac2.sns.SNSMsg"
+		resultType="com.kwon.ihwac2.sns.SNSRepl">
+		select * 
+		from ihwac2_sns_repl 
+		where isr_is_no=#{is_no} 
+		order by isr_date
+	</select>
+	<update id="updateSNSMsg"
+		parameterType="com.kwon.ihwac2.sns.SNSMsg">
+		update ihwac2_sns 
+		set is_txt=#{is_txt}, is_date=sysdate 
+		where is_no=#{is_no}
+	</update>
+	<insert id="writeSNSRepl"
+		parameterType="com.kwon.ihwac2.sns.SNSRepl">
+		insert into ihwac2_sns_repl 
+		values(ihwac2_sns_repl_seq.nextval, #{isr_is_no}, #{isr_owner}, #{isr_txt}, sysdate)
+	</insert>
+	<insert id="writeSNSMsg"
+		parameterType="com.kwon.ihwac2.sns.SNSMsg">
+		insert into ihwac2_sns 
+		values(ihwac2_sns_seq.nextval, #{is_owner}, #{is_txt}, sysdate, #{is_color})
+	</insert>
+</mapper>
