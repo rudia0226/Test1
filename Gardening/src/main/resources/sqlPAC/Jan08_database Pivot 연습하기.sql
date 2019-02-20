@@ -1,0 +1,19 @@
+
+-- PIVOT 연습 
+
+WITH TEMP AS (
+	SELECT DEPTNO, SAL , JOB
+	FROM EMP
+)
+SELECT * 
+FROM TEMP 
+PIVOT (
+	SUM(SAL) AS "총합" 
+	FOR DEPTNO 
+	IN (10 AS "여의도", 20 AS "영등포", 30 AS "강서구")
+);
+
+SELECT DEPTNO, SAL 
+FROM EMP
+WHERE DEPTNO = 10
+;

@@ -7,7 +7,7 @@
 		insert into garden_menu
 		values (#{s_name},#{e_name},#{p_img})
 	</insert>
-	
+	 
 <!-- 10/02 : 게시판 사진 조회 select   -->
 <!-- 1. 일단 원하는 순서의 역순으로 select (강사님 스타일)   -->
 	<select id="getAllBoard"  resultType="com.rudia.s.board.Board">

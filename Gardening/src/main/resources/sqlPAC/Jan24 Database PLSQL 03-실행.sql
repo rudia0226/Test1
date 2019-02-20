@@ -1,0 +1,2 @@
+EXEC PROC_TST2(2);
+
