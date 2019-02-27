@@ -60,7 +60,7 @@
 <table  class="containerTable"  border="1">
 <thead>
 	<tr  id="trTitle">
-	  <th>지역번호 <a href="nan"></a></th>		 <!-- AREA_CD -->
+	  <th>지역번호 </th>	<!-- AREA_CD -->
 		<th>지역이름</th>	 <!-- NM -->
 		<th>나라</th>	     <!-- REGION_AREA -->
 		<th>청소기</th>	     <!-- COL0 -->

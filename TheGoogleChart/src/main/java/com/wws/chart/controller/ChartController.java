@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +22,7 @@ import com.wws.chart.vo.selectBoxVO;
 
 @Controller
 @SessionAttributes("ChartVO")
-public class ChartController {
+public class ChartController extends AbstractLogger{
 
 	@Autowired
 	private ChartService chartService;
@@ -37,17 +36,11 @@ public class ChartController {
 		long end = System.currentTimeMillis();
 		Map<String,Object> result = new HashMap<String,Object>();
 		String time = String.format("%.2f", (end - start)/1000.0); 
-		System.out.println("MeasuringTime : " + String.format("%.3f", (end - start)/1000.0));
+		logger.info("MeasuringTime : " + String.format("%.3f", (end - start)/1000.0));
 		result.put("data", orderList);
 		result.put("time", time);
-		System.out.println("Success getChartList");
+		logger.info("박루디아");
 		return result;
-	}
-	
-	@RequestMapping("/nan")
-	public String nam() {
-		
-		return "nan";
 	}
 	
 	// Select Checked All chartWithFunction
@@ -59,10 +52,10 @@ public class ChartController {
 		long end = System.currentTimeMillis();
 		Map<String,Object> result = new HashMap<String,Object>();
 		String time = String.format("%.2f", (end - start)/1000.0); 
-		System.out.println("MeasuringTime with Function : " + String.format("%.3f", (end - start)/1000.0));
+		logger.info("MeasuringTime with Function : " + String.format("%.3f", (end - start)/1000.0));
 		result.put("data", orderList); 
 		result.put("time", time);
-		System.out.println("Success getFunctionChartList");
+		logger.info("Success getFunctionChartList");
 		return result;
 	}
 	
@@ -71,7 +64,7 @@ public class ChartController {
 	public @ResponseBody Map<String, Object> getSelectBoxValue() {
 		List<selectBoxVO> getSelectBoxValueList = chartService.getSelectBoxValue();
 		Map<String, Object> resultForSelectBox = new HashMap<String, Object>();
-		//System.out.println(getSelectBoxValueList);
+//		logger.info(getSelectBoxValueList);
 		resultForSelectBox.put("selectBox", getSelectBoxValueList);
 		return resultForSelectBox;
 	}
@@ -85,11 +78,11 @@ public class ChartController {
 	// Change DB Function color
 	@RequestMapping(value="/doColorChange" , method=RequestMethod.GET)
 	public String doColorChange(HttpServletRequest request) {
-		//System.out.println("hello Color Change" );   
+		logger.info("hello Color Change" );   
 		String[] cdIds = request.getParameterValues("cdId");
 		String[] cmts = request.getParameterValues("cmt");
 		for (int i = 0; i < cmts.length; i++) {
-			//System.out.println("cmt : " + cmts[i] + ", cdId : " + cdIds[i] );
+//			logger.info("cmt : " + cmts[i] + ", cdId : " + cdIds[i] );
 			chartService.colorChange(cmts[i], cdIds[i]);
 		}
 		return "color";
@@ -101,10 +94,7 @@ public class ChartController {
 		List<ColorVO> getColorList = chartService.colorList();
 		Map<String, Object> map = new HashMap<String,Object>();
 		map.put("colorChart", getColorList);
-		//System.out.println("selectColor : value= "+ getColorList);
+		logger.info("selectColor : value= "+ getColorList);
 		return  map;
 	} 
-	
-	
-	
 }
