@@ -1,12 +1,15 @@
 package com.wws.chart.vo;
 
+import lombok.Data;
+
+@Data
 public class ColorVO {
 
 	private String cdId;
 	private String cdNm;
 	private String useYn;
 	private String cmt;
-	
+	/*
 	public ColorVO(String cdId, String cdNm, String useYn, String cmt) {
 		super();
 		this.cdId = cdId;
@@ -38,6 +41,6 @@ public class ColorVO {
 	public void setCmt(String cmt) {
 		this.cmt = cmt;
 	}
-	
+	*/
 }
 

@@ -19,7 +19,10 @@ import com.wws.chart.service.ChartService;
 import com.wws.chart.vo.ChartVO;
 import com.wws.chart.vo.ColorVO;
 import com.wws.chart.vo.selectBoxVO;
-
+/**
+ * 
+ * @author RUDIA PARK
+ */
 @Controller
 @SessionAttributes("ChartVO")
 public class ChartController extends AbstractLogger{
@@ -27,6 +30,13 @@ public class ChartController extends AbstractLogger{
 	@Autowired
 	private ChartService chartService;
 	
+	
+	/**
+	 * 
+	 * @param parametersMultiMap  넘어오는 값들 (조회)
+	 * @return	map형태로 리턴해줌
+	 * @throws Exception
+	 */
 	// Select Checked All
 	@RequestMapping(value="/chart/chartsToMVM", method=RequestMethod.GET,  produces="application/json; chartset=utf-8") 
 	public @ResponseBody Map<String,Object>  getChartList(@RequestParam MultiValueMap<String,Object> parametersMultiMap) throws Exception{

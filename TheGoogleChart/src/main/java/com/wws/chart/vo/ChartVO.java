@@ -1,5 +1,8 @@
 package com.wws.chart.vo;
 
+import lombok.Data;
+
+@Data
 public class ChartVO {
 
 //private String  areaCd;
@@ -19,127 +22,22 @@ private String col9;
 private String tot;
 
 
-public ChartVO() {   }
-
-public ChartVO(String areaNm, String nm, String regionArea, String col0, String col1, String col2, String col3,
-		String col4, String col5, String col6, String col7, String col8, String col9, String tot) {
-	super();
-	this.areaNm = areaNm;
-	this.nm = nm;
-	this.regionArea = regionArea;
-	this.col0 = col0;
-	this.col1 = col1;
-	this.col2 = col2;
-	this.col3 = col3;
-	this.col4 = col4;
-	this.col5 = col5;
-	this.col6 = col6;
-	this.col7 = col7;
-	this.col8 = col8;
-	this.col9 = col9;
-	this.tot = tot;
-}
-
-
-
-public String getAreaNm() {
-	return areaNm;
-}
-public void setAreaNm(String areaNm) {
-	this.areaNm = areaNm;
-}
-
-/*
-
-public String getAreaCd() {
-	return areaCd;
-}
-public void setAreaCd(String areaCd) {
-	this.areaCd = areaCd;
-}
-*/
-public String getRegionArea() {
-	return regionArea;
-}
-
-public void setRegionArea(String regionArea) {
-	this.regionArea = regionArea;
-}
-
-public String getNm() {
-	return nm;
-}
-public void setNm(String nm) {
-	this.nm = nm;
-}
-public String getCol0() {
-	return col0;
-}
-public void setCol0(String col0) {
-	this.col0 = col0;
-}
-public String getCol1() {
-	return col1;
-}
-public void setCol1(String col1) {
-	this.col1 = col1;
-}
-public String getCol2() {
-	return col2;
-}
-public void setCol2(String col2) {
-	this.col2 = col2;
-}
-public String getCol3() {
-	return col3;
-}
-public void setCol3(String col3) {
-	this.col3 = col3;
-}
-public String getCol4() {
-	return col4;
-}
-public void setCol4(String col4) {
-	this.col4 = col4;
-}
-public String getCol5() {
-	return col5;
-}
-public void setCol5(String col5) {
-	this.col5 = col5;
-}
-public String getCol6() {
-	return col6;
-}
-public void setCol6(String col6) {
-	this.col6 = col6;
-}
-public String getCol7() {
-	return col7;
-}
-public void setCol7(String col7) {
-	this.col7 = col7;
-}
-public String getCol8() {
-	return col8;
-}
-public void setCol8(String col8) {
-	this.col8 = col8;
-}
-public String getCol9() {
-	return col9;
-}
-public void setCol9(String col9) {
-	this.col9 = col9;
-}
-
-public String getTot() {
-	return tot;
-}
-
-public void setTot(String tot) {
-	this.tot = tot;
-}
-
-
+/**
+ * 
+ * @Data : 모든 필드에 getter, setter를 생성하고 toString, equals, hashCode 메서드도 추가
+         final로 지정된 필드가 있으면 생성자를 통해 데이터를 받을 수 있게 생성자를 생성하고
+         이때 setter를 생성하지 않음
+	@Getter/@Setter : getter, setter를 생성할 수 있고 접근지정자를 명시할 수 있음.
+                    예) @Getter(AccessLevel.PUBLIC)
+	@ToString : toString()를 재정의할 수 있음. 특정 필드를 제외할 수 있음
+             예) @ToString(exclue={"name"})
+	@AllArgsConstructor : 모든 필드 값을 인자로 받는 생성자 생성, 접근지정자 명시 가능
+                          예) @AllArgsConstructor(access=AccessLevel.PUBLIC)
+	@EqualsAndHashCode : equals, hashCode 메서드 생성, 특정 필드를 제외할 수 있음
+                            예) @EqualsAndHashCode(exclude={"name"})
+	@Log : Log4j사용. private static final Logger logger 추가	
+	@Slf4j : Slf4j사용. private static final Logger logger 추가
+	출처: https://mobilenweb.tistory.com/172 [모바일앤웹]
+ * 
+ */
 }

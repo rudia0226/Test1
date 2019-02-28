@@ -31,5 +31,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/java/jdk1.8.0/jre/lib/ext/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/java_master/eclipse/lombok.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
