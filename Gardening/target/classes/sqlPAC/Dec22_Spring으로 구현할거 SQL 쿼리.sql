@@ -250,6 +250,7 @@ FROM(
                     ,PROD_ID                
          )TA, CD_TBL TB
     WHERE TA.AREA_CD = TB.CD_ID
+    	AND LENGTH(TB.CD_ID)=2
     GROUP BY ROLLUP(AREA_CD ,REGION_AREA)
 ) WHERE GR = (DECODE(:ARG_GR,'D','00','M','01','T','11',GR))
 ORDER BY  
@@ -354,6 +355,7 @@ ORDER BY
 	                    ,PROD_ID                
 	         )TA, CD_TBL TB
 	    WHERE TA.AREA_CD = TB.CD_ID
+	    	AND LENGTH(TB.CD_ID)=2
 	    GROUP BY ROLLUP(AREA_CD ,REGION_AREA)
 	) WHERE GR = (DECODE(:ARG_GR,'D','00','M','01','T','11',GR))
 	ORDER BY  
