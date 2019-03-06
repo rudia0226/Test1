@@ -25,6 +25,27 @@
 
 	<context:component-scan base-package="com.rudia.s" />
 
+	
+	<beans:bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		<beans:constructor-arg ref="dataSourceSpied" />
+		<beans:property name="logFormatter">
+			<beans:bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+				<beans:property name="loggingType"  value="MULTI_LINE" />
+				<beans:property name="sqlPrefix"  value="SQL         :  " />
+			</beans:bean>
+		</beans:property>
+	</beans:bean>
+	
+	<beans:bean id="dataSourceSpied"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver"></beans:property>
+			<beans:property name="url"  value="jdbc:oracle:thin:@localhost:1521:xe"></beans:property>
+			<beans:property name="username" value="scott"></beans:property>
+			<beans:property name="password"  value="tiger"></beans:property>
+	</beans:bean>
+	
+	<!-- 
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url"
@@ -32,6 +53,8 @@
 		<beans:property name="username" value="scott" />
 		<beans:property name="password" value="tiger" />
 	</beans:bean>
+ -->
+
 
 	<beans:bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
